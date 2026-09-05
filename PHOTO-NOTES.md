@@ -82,3 +82,14 @@ The final supplied photograph (`Green-Two-Piece.jpeg`) shows a plain olive-green
 The raw room photograph is not published. The real-photo exports use pixel-based masking and resampling, not generative garment reconstruction, and do not retain source EXIF/location metadata. Product copy and WhatsApp enquiries state that no scarf/dupatta is included. Pricing, measurements and size availability remain unconfirmed. The old Olive concept ID was retired rather than reassigned.
 
 The customer collection is now entirely based on the four supplied outfits: orange and pink three-piece sets, navy and green two-piece sets. There are no remaining concept product cards. Model-image disclosure remains in ordinary text outside the pictures; the campaign and inspiration moodboard are still illustrative.
+
+# White, yellow and two purple designs
+
+Four unique designs were supplied together. `White_styled.jpeg` appeared twice in the conversation but is listed only once. The owner confirmed through the clarification prompt that `yellow-kurti.jpeg` is **kurti/top only**, not a two- or three-piece set. The previous four product listings were retained.
+
+- **White Floral Two-Piece Set**: collared button-front shirt with asymmetric grey/brown floral panels and teal leaves; coordinating white trousers with floral hems. No scarf. Assets use the `white-floral-set` prefix.
+- **Yellow Floral Kurti — Top Only**: mustard-yellow top with white neckline, body and cuff details. The ivory trousers and footwear in the modelled image are styling props, not included merchandise. This exclusion is in its card/name, product copy, photo note and WhatsApp enquiry contents. Assets use `yellow-kurti`.
+- **Dark Purple Three-Piece Kurta Set**: dark-purple kurta with white neckline and substantial cuff details, decorated trouser hems, and a leafy-border dupatta. Assets use `dark-purple-set`.
+- **Plum Purple Three-Piece Kurta Set**: distinct brighter purple design with a white paisley/floral neckline and small flower motifs, narrow-trim trousers and a small-flower dupatta. It is not a duplicate of the dark-purple design. Assets use `plum-purple-set`.
+
+Each modelled view is AI-generated and may approximate fit, length, drape, print placement and small details. Real garment images were isolated from the room/bedding with pixel-based masks, straightened and cropped; the detail views are crops of the same supplied photograph, not extra camera angles. No unseen parts were generated in those real-photo views. The unedited room photographs are not published and source EXIF/location metadata is not retained. Images have no text, source badge or footer; explanations stay outside them in the product interface. Prices and size availability were not supplied and remain on enquiry.

@@ -8,12 +8,29 @@ An editorial, mobile-friendly storefront for Sutras’ women’s cotton Indian w
 
 ## Current collection
 
+The catalogue now contains **eight products**, with the existing four retained and the repeated white photo counted once:
+
+| Product | Included in the listing |
+| --- | --- |
+| Orange set | Kurta, printed bottoms, plain orange dupatta — 3 pieces |
+| Pink set | Kurta, bottoms, tasseled dupatta — 3 pieces |
+| Navy set | Kurta and bottoms — 2 pieces, no scarf |
+| Green set | Kurta and bottoms — 2 pieces, no scarf |
+| White floral set | Collared shirt and floral-hem trousers — 2 pieces, no scarf |
+| Yellow floral kurti | **Top only — 1 piece. Model styling trousers/footwear are not included.** |
+| Dark-purple set | Kurta, decorated-hem bottoms, leafy-border dupatta — 3 pieces |
+| Plum-purple set | Kurta, narrow-trim bottoms, small-flower dupatta — 3 pieces |
+
+Every product has a clean modelled main view and its original-photo gallery. Prices and size availability remain unconfirmed; enquiries go to the store. There are no concept product cards.
+
+### First four outfits
+
 - **Orange Three-Piece Kurta Set** now uses the owner-approved **AI model view** as its primary image. The original store photograph and two real-photo detail crops remain in the gallery. Image provenance is described in the gallery captions and product details, not overlaid on the photographs.
 - The main modelled view is an AI-generated styling illustration, not proof of exact fit or drape. Images have no overlaid source badges or bottom text strips; the AI-styling explanation is kept in the product details. The other three gallery views come from **one real store photograph**, not three separate camera angles.
 - **Pink Three-Piece Kurta Set** is the second owner-photographed product, with a clean modelled main image, the real set photograph and neckline/dupatta detail crops. It replaces the Bela concept card using a new product ID.
 - **Navy Two-Piece Kurta Set** is the third photographed product. It contains the printed kurta and matching bottoms only: **no scarf/dupatta**. The modelled image has no draped accessory, and the real set, neckline and print close-ups remain in its gallery. It replaces the Gulabi concept using a new ID.
-- **Green Two-Piece Kurta Set** completes the four supplied outfits: a plain olive-green kurta with red floral yoke detail and coordinating bottoms, **without a scarf/dupatta**. It replaces the final Olive concept with a new product ID.
-- **There are no placeholder/concept product cards left in the collection.** All four entries have modelled main views and real source-photo galleries. The campaign and moodboard remain illustrative; the model-view explanation stays outside the pictures.
+- **Green Two-Piece Kurta Set** is the fourth of the first supplied outfits: a plain olive-green kurta with red floral yoke detail and coordinating bottoms, **without a scarf/dupatta**. It replaces the final Olive concept with a new product ID.
+- **There are no placeholder/concept product cards left in the collection.** All current entries have modelled main views and real source-photo galleries. The campaign and moodboard remain illustrative; the model-view explanation stays outside the pictures.
 - Price, size availability, exact measurements and stock must still be confirmed on WhatsApp. The folded bottoms have not been assigned an unverified cut such as churidar, palazzo or salwar.
 
 Website: **https://sutras-wear.github.io/Sutras-by-S3/**  
@@ -86,7 +103,7 @@ Instagram blocked automated access. No actual Instagram photographs, posts, stoc
 
 ## Replace the placeholder photos later
 
-The orange and pink three-piece sets and navy and green two-piece sets use **AI-modelled primary images**, with their actual owner-supplied photographs retained in their galleries. The hero, cotton still life and remaining model images are AI-generated illustrations. All four displayed products are based on outfits supplied by the owner, not concept listings. The retired Bela and Gulabi illustrations are still used only in the inspiration moodboard; the old Noor and Olive assets are not product listings. Store-photo and illustrative items are distinguished in the collection, details, search, bag, FAQs and WhatsApp messages. See `PHOTO-NOTES.md` for the real image’s provenance.
+The orange and pink three-piece sets and navy and green two-piece sets use **AI-modelled primary images**, with their actual owner-supplied photographs retained in their galleries. The hero, cotton still life and remaining model images are AI-generated illustrations. All eight displayed products are based on garments supplied by the owner, not concept listings. The yellow item is sold as a top only, not as the complete styled outfit shown on the model. The retired Bela and Gulabi illustrations are still used only in the inspiration moodboard; the old Noor and Olive assets are not product listings. Store-photo and illustrative items are distinguished in the collection, details, search, bag, FAQs and WhatsApp messages. See `PHOTO-NOTES.md` for the real image’s provenance.
 
 ### Quickest photo replacement
 
@@ -115,6 +132,14 @@ Replace these files with real, permission-cleared images using the **same filena
 | `assets/images/green-set-yoke.webp` | Same-photo floral-yoke crop | 4:5 portrait |
 | `assets/images/green-set-cuff.webp` | Same-photo sleeve/cuff crop | 4:5 portrait |
 | `assets/images/olive.webp` | Retired, unused concept image | 3:4 portrait |
+| `assets/images/white-floral-set-model.webp` | White floral co-ord set | 3:4 portrait |
+| `assets/images/white-floral-set-photo.webp`, `assets/images/white-floral-set-collar.webp`, `assets/images/white-floral-set-print.webp` | White-set original photo and crops | Portrait |
+| `assets/images/yellow-kurti-model.webp` | Yellow kurti; styling trousers excluded | 3:4 portrait |
+| `assets/images/yellow-kurti-photo.webp`, `assets/images/yellow-kurti-neckline.webp`, `assets/images/yellow-kurti-cuff.webp` | Actual yellow top and crops | Portrait |
+| `assets/images/dark-purple-set-model.webp` | Dark-purple three-piece set | 3:4 portrait |
+| `assets/images/dark-purple-set-photo.webp`, `assets/images/dark-purple-set-neckline.webp`, `assets/images/dark-purple-set-trim.webp` | Dark-purple original photo and crops | Portrait |
+| `assets/images/plum-purple-set-model.webp` | Brighter plum-purple three-piece set | 3:4 portrait |
+| `assets/images/plum-purple-set-photo.webp`, `assets/images/plum-purple-set-neckline.webp`, `assets/images/plum-purple-set-trim.webp` | Plum-purple original photo and crops | Portrait |
 | `assets/images/cotton.webp` | Story and moodboard | 4:5 portrait |
 | `assets/images/social-card.jpg` | Link-sharing thumbnail | 1200 × 630 landscape |
 

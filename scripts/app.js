@@ -13,6 +13,7 @@
   const sizes = ['Not sure', 'XS', 'S', 'M', 'L', 'XL', 'XXL'];
   const storageKey = 'sutras-enquiry-bag-v1';
   const maxQuantity = 10;
+  const maxSelections = 50;
   let activeProduct = null;
   let activeGallery = [];
   let selectedPhotoIndex = 0;
@@ -28,7 +29,7 @@
   try {
     const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
     if (saved && Array.isArray(saved.items)) {
-      bag = saved.items.slice(0, 50).filter(item => item && byId.has(item.id) && sizes.includes(item.size) && Number.isInteger(item.quantity) && item.quantity >= 1 && item.quantity <= maxQuantity);
+      bag = saved.items.slice(0, maxSelections).filter(item => item && byId.has(item.id) && sizes.includes(item.size) && Number.isInteger(item.quantity) && item.quantity >= 1 && item.quantity <= maxQuantity);
       orderNote = typeof saved.note === 'string' ? saved.note.slice(0, 500) : '';
       if (!bag.length) orderNote = '';
     }
@@ -305,6 +306,10 @@
   function addToBag(id, size) {
     if (!byId.has(id) || !sizes.includes(size)) return;
     const existing = bag.find(item => item.id === id && item.size === size);
+    if (!existing && bag.length >= maxSelections) {
+      showToast('Your bag has 50 selections. Please remove one or message us to discuss more.');
+      return;
+    }
     if (existing && existing.quantity >= maxQuantity) {
       const button = $('#add-to-bag');
       button.textContent = 'Maximum 10 per style & size — message us for more';
@@ -422,7 +427,7 @@
     if (event.key !== storageKey) return;
     try {
       const saved = JSON.parse(event.newValue || 'null');
-      bag = saved && Array.isArray(saved.items) ? saved.items.slice(0, 50).filter(item => item && byId.has(item.id) && sizes.includes(item.size) && Number.isInteger(item.quantity) && item.quantity >= 1 && item.quantity <= maxQuantity) : [];
+      bag = saved && Array.isArray(saved.items) ? saved.items.slice(0, maxSelections).filter(item => item && byId.has(item.id) && sizes.includes(item.size) && Number.isInteger(item.quantity) && item.quantity >= 1 && item.quantity <= maxQuantity) : [];
       orderNote = bag.length && typeof saved.note === 'string' ? saved.note.slice(0, 500) : '';
       renderBag();
     } catch (_) { /* Leave the current selection intact if saved data is invalid. */ }
@@ -446,7 +451,7 @@
   const collectionNote = $('#collection-image-note');
   if (collectionNote) collectionNote.textContent = hasPreviewProducts
     ? 'AI model views illustrate styling; original store photos are in the gallery. Style-preview cards are concepts, not confirmed stock.'
-    : 'AI model views illustrate styling. Each set has its original store photograph in the gallery.';
+    : 'AI model views illustrate styling. Every product has its original store photograph in the gallery.';
   $('#stock-faq-answer').textContent = hasPreviewProducts
     ? 'AI model views illustrate styling, with original store photographs available in the product galleries. Items identified as “Style preview” are concepts, not confirmed stock. Please confirm actual pieces, prices and measurements on WhatsApp.'
     : `${hasModelledProducts ? 'The collection is based on photographs supplied by Sutras. Main modelled views illustrate styling, not exact fit; the original store photographs are in each product gallery. ' : ''}Please confirm current availability, prices and garment measurements on WhatsApp before ordering.`;

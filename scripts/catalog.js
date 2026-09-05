@@ -2,8 +2,9 @@
  * SUTRAS — editable store content
  * Replace the images in assets/images/ and edit these entries as your real
  * collection becomes available. See README.md before changing isPreview.
- * All four sets use modelled main images and actual source photographs
- * in their galleries. There are no remaining concept product entries. isPreview describes concept products; imageKind describes
+ * The catalogue now has eight source-photo-based products, including the
+ * yellow kurti sold as a top only. Modelled views and original-photo galleries
+ * are distinguished in the product text; there are no concept product entries. isPreview describes concept products; imageKind describes
  * imagery. No price or size availability has been supplied.
  */
 window.SUTRAS = {
@@ -172,6 +173,166 @@ window.SUTRAS = {
       ],
       price: null,
       isPreview: false
+    },
+    {
+      "id": "white-floral-two-piece-set",
+      "name": "White Floral Two-Piece Set",
+      "cardName": "White Floral Set",
+      "category": "Co-ord sets",
+      "color": "White, grey & teal",
+      "colorHex": "#e4e3de",
+      "description": "A white collared button-front shirt with an asymmetric floral panel and printed cuffs, paired with coordinating floral-hem trousers. Two pieces only: shirt and bottoms, with no scarf or dupatta.",
+      "detail": "Two pieces: shirt + trousers · Floral panels · No scarf / dupatta",
+      "setContents": "Button-front shirt and coordinating floral-hem trousers (2 pieces; no scarf/dupatta)",
+      "imageAlt": "AI-generated styling preview of an adult woman in a white floral-panel collared shirt and matching floral-hem trousers, without a scarf. Fit and details are illustrative.",
+      "photoNote": "The main image is AI-generated styling. Fit, length, drape and small details are approximate. The original store photograph and detail crops remain in the gallery for comparison.",
+      "image": "assets/images/white-floral-set-model.webp",
+      "imageKind": "ai-model",
+      "price": null,
+      "isPreview": false,
+      "gallery": [
+        {
+          "src": "assets/images/white-floral-set-photo.webp",
+          "kind": "store-photo",
+          "label": "Real photo",
+          "alt": "Actual store photograph of the white floral two-piece set laid out together, with the room and bedding background removed.",
+          "caption": "Original store photograph — background removed and the view straightened. Unseen or cropped-off garment parts were not generated."
+        },
+        {
+          "src": "assets/images/white-floral-set-collar.webp",
+          "kind": "store-photo",
+          "label": "Collar detail",
+          "alt": "Actual photograph crop: collar detail of the white floral two-piece set.",
+          "caption": "Collar, buttons and floral panel — a closer crop of the same original photograph, not another camera angle."
+        },
+        {
+          "src": "assets/images/white-floral-set-print.webp",
+          "kind": "store-photo",
+          "label": "Print detail",
+          "alt": "Actual photograph crop: print detail of the white floral two-piece set.",
+          "caption": "Floral trouser-hem print — a closer crop of the same original photograph, not another camera angle."
+        }
+      ]
+    },
+    {
+      "id": "yellow-floral-kurti",
+      "name": "Yellow Floral Kurti — Top Only",
+      "cardName": "Yellow Kurti (Top Only)",
+      "category": "Kurtas",
+      "color": "Mustard yellow & white",
+      "colorHex": "#b9a620",
+      "description": "A mustard-yellow kurti with white floral and paisley detailing around the neckline, scattered motifs and decorated cuffs. This listing is for the kurti only. The model’s ivory trousers are styling only and are not included.",
+      "detail": "Kurti only · White floral detail · No bottoms or scarf included",
+      "setContents": "Yellow kurti only (1 piece); model styling trousers, footwear and scarf are not included",
+      "imageAlt": "AI-generated styling preview of an adult woman wearing the yellow floral kurti with plain ivory trousers for styling only. Only the yellow top is included.",
+      "photoNote": "Only the yellow kurti is included. The model’s ivory trousers and footwear are styling props, not products in this listing. The modelled image is AI-generated; fit and small details are approximate. See the original garment photo in the gallery.",
+      "image": "assets/images/yellow-kurti-model.webp",
+      "imageKind": "ai-model",
+      "price": null,
+      "isPreview": false,
+      "gallery": [
+        {
+          "src": "assets/images/yellow-kurti-photo.webp",
+          "kind": "store-photo",
+          "label": "Real photo",
+          "alt": "Actual store photograph of the yellow kurti only, with the bedding background removed. No bottoms or scarf are shown.",
+          "caption": "Original store photograph — background removed and the view straightened. Unseen or cropped-off garment parts were not generated."
+        },
+        {
+          "src": "assets/images/yellow-kurti-neckline.webp",
+          "kind": "store-photo",
+          "label": "Neckline detail",
+          "alt": "Actual photograph crop: neckline detail of the yellow floral kurti — top only.",
+          "caption": "White neckline detail — a closer crop of the actual kurti photograph, not a separate camera angle."
+        },
+        {
+          "src": "assets/images/yellow-kurti-cuff.webp",
+          "kind": "store-photo",
+          "label": "Cuff detail",
+          "alt": "Actual photograph crop: cuff detail of the yellow floral kurti — top only.",
+          "caption": "White cuff detail — a closer crop of the same original kurti photograph."
+        }
+      ]
+    },
+    {
+      "id": "dark-purple-three-piece-set",
+      "name": "Dark Purple Three-Piece Kurta Set",
+      "cardName": "Dark Purple Kurta Set",
+      "category": "Kurta sets",
+      "color": "Deep purple & white",
+      "colorHex": "#3c254e",
+      "description": "A deep-purple kurta with intricate white neckline and cuff details, coordinated with decorated-hem trousers and a dupatta with a white leafy-vine border. Three pieces: kurta, bottoms and scarf.",
+      "detail": "Three pieces · White neckline and cuff detail · Leaf-border dupatta",
+      "setContents": "Dark-purple kurta, decorated-hem bottoms and leaf-border dupatta (3 pieces)",
+      "imageAlt": "AI-generated styling preview of an adult woman wearing a dark-purple kurta, white-detailed trouser hems and a matching leafy-border dupatta. Fit and details are illustrative.",
+      "photoNote": "The main image is AI-generated styling. Fit, length, drape and small details are approximate. The original store photograph and detail crops remain in the gallery for comparison.",
+      "image": "assets/images/dark-purple-set-model.webp",
+      "imageKind": "ai-model",
+      "price": null,
+      "isPreview": false,
+      "gallery": [
+        {
+          "src": "assets/images/dark-purple-set-photo.webp",
+          "kind": "store-photo",
+          "label": "Real photo",
+          "alt": "Actual store photograph of the dark purple three-piece kurta set laid out together, with the room and bedding background removed.",
+          "caption": "Original store photograph — background removed and the view straightened. Unseen or cropped-off garment parts were not generated."
+        },
+        {
+          "src": "assets/images/dark-purple-set-neckline.webp",
+          "kind": "store-photo",
+          "label": "Neckline detail",
+          "alt": "Actual photograph crop: neckline detail of the dark purple three-piece kurta set.",
+          "caption": "White neckline detail — a closer crop of the actual dark-purple set photograph."
+        },
+        {
+          "src": "assets/images/dark-purple-set-trim.webp",
+          "kind": "store-photo",
+          "label": "Trim detail",
+          "alt": "Actual photograph crop: trim detail of the dark purple three-piece kurta set.",
+          "caption": "Decorated trouser-hem detail — a closer crop of the same original photograph, not another camera angle."
+        }
+      ]
+    },
+    {
+      "id": "plum-purple-three-piece-set",
+      "name": "Plum Purple Three-Piece Kurta Set",
+      "cardName": "Plum Purple Kurta Set",
+      "category": "Kurta sets",
+      "color": "Plum purple & white",
+      "colorHex": "#77277e",
+      "description": "A plum-purple kurta with a white paisley-floral neckline and scattered small flower details. Coordinating bottoms with a narrow white trim and a small-flower dupatta complete the three-piece set.",
+      "detail": "Three pieces · White paisley-floral neckline · Small-flower dupatta",
+      "setContents": "Plum-purple kurta, narrow-trim bottoms and small-flower dupatta (3 pieces)",
+      "imageAlt": "AI-generated styling preview of an adult woman wearing a plum-purple kurta with white paisley-floral detail, coordinating trousers and a small-flower dupatta. Fit and details are illustrative.",
+      "photoNote": "The main image is AI-generated styling. Fit, length, drape and small details are approximate. The original store photograph and detail crops remain in the gallery for comparison.",
+      "image": "assets/images/plum-purple-set-model.webp",
+      "imageKind": "ai-model",
+      "price": null,
+      "isPreview": false,
+      "gallery": [
+        {
+          "src": "assets/images/plum-purple-set-photo.webp",
+          "kind": "store-photo",
+          "label": "Real photo",
+          "alt": "Actual store photograph of the plum purple three-piece kurta set laid out together, with the room and bedding background removed.",
+          "caption": "Original store photograph — background removed and the view straightened. Unseen or cropped-off garment parts were not generated."
+        },
+        {
+          "src": "assets/images/plum-purple-set-neckline.webp",
+          "kind": "store-photo",
+          "label": "Neckline detail",
+          "alt": "Actual photograph crop: neckline detail of the plum purple three-piece kurta set.",
+          "caption": "Paisley-floral neckline — a closer crop of the actual plum-purple set photograph."
+        },
+        {
+          "src": "assets/images/plum-purple-set-trim.webp",
+          "kind": "store-photo",
+          "label": "Trim detail",
+          "alt": "Actual photograph crop: trim detail of the plum purple three-piece kurta set.",
+          "caption": "Narrow trouser-trim detail — a closer crop of the same original photograph, not another camera angle."
+        }
+      ]
     }
   ]
 };

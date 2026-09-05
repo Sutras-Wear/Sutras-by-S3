@@ -106,3 +106,13 @@ This is a limited automated audit, not an accessibility certification. Full manu
 - Verified the collection’s model-image explanation remains visible outside the pictures even with no concept products. FAQ/site notes no longer imply that concept product cards remain. Redundant category controls are hidden when all products share one category.
 - Verified no horizontal overflow at 320, 390, 768, 1024 and 1440 pixels, and correct handling of stale Olive selections.
 - No failed requests or JavaScript exceptions in the checked states. axe-core reported zero tested A/AA violations for the collection, green product dialog and enlarged modelled view.
+
+## Four additional designs — 5 September 2026
+
+- Verified eight unique products: all existing four preserved, one white floral set (not duplicated), yellow kurti/top only, and two distinct purple three-piece sets.
+- Visually checked the four modelled views: white set without scarf; yellow kurti styled with plain ivory trousers; dark-purple set with decorated hems and leafy-border dupatta; plum-purple set with narrow-trim trousers and small-flower dupatta. No on-image text or source badges were added.
+- Verified the yellow top-only title/card, description, photo note and both WhatsApp enquiry messages exclude the model styling trousers/footwear.
+- Verified category counts (6 kurta sets, 1 kurti, 1 co-ord set), search, all four new galleries and detail-image decoding, enlargement, retained size preferences, both WhatsApp destinations and bag/note persistence.
+- Verified the 50-distinct-selection safeguard: a new combination is refused at the limit while quantity can still increase on an existing selection. This prevents newer selections from silently disappearing on reload.
+- No horizontal overflow at 320, 390, 768, 1024 and 1440 pixels, no failed requests or JavaScript exceptions, and zero tested axe A/AA violations for the collection, top-only product and three-piece product states.
+- Verified the four new galleries, enlarged images and enquiry bag in the self-contained sandboxed preview with no network or storage access.
