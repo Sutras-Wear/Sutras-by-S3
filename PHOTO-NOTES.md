@@ -67,3 +67,18 @@ The owner supplied `Two-piece.jpeg` and explicitly confirmed **there is no scarf
 - `assets/images/navy-set-print.webp`: printed motifs and pleat-detail crop from that photograph.
 
 Real-photo processing was pixel-based background masking and ordinary resampling; no hidden garment parts were generated in those reference views. The unedited room photo is not published and its EXIF/location metadata is not carried into the exports. The product description and both direct/bag WhatsApp enquiries explicitly state that no scarf/dupatta is included. No price or size availability was supplied.
+
+# Green Two-Piece Kurta Set
+
+The final supplied photograph (`Green-Two-Piece.jpeg`) shows a plain olive-green kurta and coordinating elastic-waist bottoms. The kurta has a rounded neckline, a dark-edged yoke with small red floral/botanical detail, and narrow dark sleeve-edge trim. There is no scarf/dupatta in this two-piece set.
+
+## Green image assets
+
+- `assets/images/green-set-model.webp`: clean AI-modelled styling view, with only the kurta and trousers, hands free, no scarf or draped accessory, and no on-image text. Fit, length, tone under different lighting and small details are illustrative.
+- `assets/images/green-two-piece-set.webp`: actual two-piece photograph, isolated from bedding and room, then straightened on a neutral backdrop. Unseen or clipped-off fabric was not invented.
+- `assets/images/green-set-yoke.webp`: red floral-yoke/neckline crop from the same source photograph.
+- `assets/images/green-set-cuff.webp`: sleeve-edge and fabric crop from that photograph.
+
+The raw room photograph is not published. The real-photo exports use pixel-based masking and resampling, not generative garment reconstruction, and do not retain source EXIF/location metadata. Product copy and WhatsApp enquiries state that no scarf/dupatta is included. Pricing, measurements and size availability remain unconfirmed. The old Olive concept ID was retired rather than reassigned.
+
+The customer collection is now entirely based on the four supplied outfits: orange and pink three-piece sets, navy and green two-piece sets. There are no remaining concept product cards. Model-image disclosure remains in ordinary text outside the pictures; the campaign and inspiration moodboard are still illustrative.

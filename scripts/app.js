@@ -163,7 +163,7 @@
       const isActive = button.dataset.filter === activeFilter;
       button.classList.toggle('active', isActive);
       button.setAttribute('aria-pressed', String(isActive));
-      if (button.dataset.filter !== 'All') button.hidden = !products.some(product => product.category === button.dataset.filter);
+      if (button.dataset.filter !== 'All') button.hidden = new Set(products.map(product => product.category)).size < 2 || !products.some(product => product.category === button.dataset.filter);
       else $('span', button).textContent = String(products.length).padStart(2, '0');
     });
   }
@@ -365,7 +365,7 @@
         </div>
       </article>`;
     }).join('') + '<button class="clear-bag" type="button" data-clear-bag>Clear entire bag</button>';
-    $('#bag-summary').textContent = `${count} requested piece${count === 1 ? '' : 's'} · ${bag.length} selection${bag.length === 1 ? '' : 's'}`;
+    $('#bag-summary').textContent = `${count} requested item${count === 1 ? '' : 's'} · ${bag.length} selection${bag.length === 1 ? '' : 's'}`;
     $('.bag-disclaimer').textContent = `Opens WhatsApp with your selection. Nothing is ordered, reserved or charged on this website.${bag.some(item => byId.get(item.id).isPreview) ? ' Preview styles are not confirmed stock.' : ''}${bag.some(item => primaryImageKind(byId.get(item.id)) === 'ai-model') ? ' AI-modelled views illustrate styling; actual fit may differ.' : ''}${storageAvailable ? '' : ' This preview cannot save your bag between visits.'}`;
     updateWhatsAppLinks();
   }
@@ -440,19 +440,23 @@
   }, true);
 
   const hasPreviewProducts = products.some(product => product.isPreview);
-  const hasRealProducts = products.some(product => !product.isPreview);
-  $$('[data-collection-preview-note]').forEach(note => note.hidden = !hasPreviewProducts);
+  const hasModelledProducts = products.some(product => primaryImageKind(product) === 'ai-model');
+  $$('[data-collection-preview-note]').forEach(note => note.hidden = !hasPreviewProducts && !hasModelledProducts);
   $$('[data-imagery-note]').forEach(note => note.hidden = !config.imageryIsIllustrative);
-  if (hasPreviewProducts && hasRealProducts) {
-    $('#stock-faq-answer').textContent = 'AI model views are generated styling illustrations of store products, with approximate fit and drape; the original store photographs are available in the product gallery. Cards labelled “Style preview” are concept examples, not confirmed stock. Confirm actual pieces, prices, measurements and availability on WhatsApp.';
-    $('#imagery-info').textContent = 'AI model views are generated illustrations, not photographs of a model wearing the actual garment. Fit, length, drape and small details are approximate. Original store photographs and close-up crops are identified in the gallery captions, separately from the images. The campaign, moodboard and other style-preview cards also use AI-generated imagery. Please confirm the real garment details before ordering.';
-  }
-  if (!hasPreviewProducts) {
-    $('#stock-faq-answer').textContent = 'Please message us to confirm current availability, prices and sizing for the actual pieces before ordering. Product availability is confirmed personally on WhatsApp, not by this website.';
-  }
-  if (!config.imageryIsIllustrative && !hasPreviewProducts) {
-    $('#imagery-info').textContent = 'The collection has been updated with store-provided imagery and details. Please confirm current stock, prices and garment measurements directly with Sutras before placing an order.';
-  }
+  const collectionNote = $('#collection-image-note');
+  if (collectionNote) collectionNote.textContent = hasPreviewProducts
+    ? 'AI model views illustrate styling; original store photos are in the gallery. Style-preview cards are concepts, not confirmed stock.'
+    : 'AI model views illustrate styling. Each set has its original store photograph in the gallery.';
+  $('#stock-faq-answer').textContent = hasPreviewProducts
+    ? 'AI model views illustrate styling, with original store photographs available in the product galleries. Items identified as “Style preview” are concepts, not confirmed stock. Please confirm actual pieces, prices and measurements on WhatsApp.'
+    : `${hasModelledProducts ? 'The collection is based on photographs supplied by Sutras. Main modelled views illustrate styling, not exact fit; the original store photographs are in each product gallery. ' : ''}Please confirm current availability, prices and garment measurements on WhatsApp before ordering.`;
+  const imageryNotes = [];
+  if (hasModelledProducts) imageryNotes.push('AI model views are generated illustrations, not photographs of a model wearing the actual garment. Fit, length, drape and small details are approximate.');
+  imageryNotes.push('Original store photographs and close-up crops are identified in the gallery captions, separately from the images.');
+  if (hasPreviewProducts) imageryNotes.push('Items identified as “Style preview” are concept examples, not confirmed stock.');
+  if (config.imageryIsIllustrative) imageryNotes.push('The campaign and moodboard also use illustrative imagery.');
+  imageryNotes.push('Please confirm the real garment details before ordering.');
+  $('#imagery-info').textContent = imageryNotes.join(' ');
   $('#year').textContent = new Date().getFullYear();
   renderProducts();
   renderBag();

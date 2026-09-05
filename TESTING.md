@@ -96,3 +96,13 @@ This is a limited automated audit, not an accessibility certification. Full manu
 - Verified that product copy and both direct/bag WhatsApp messages explicitly say the navy set has two pieces and no scarf/dupatta. Orange/pink enquiries retain their correct three-piece contents.
 - Verified a three-product bag and note across reload, stale Gulabi selection handling, and responsive widths of 320, 390, 768, 1024 and 1440 pixels.
 - No failed requests or JavaScript exceptions in the checked states. axe-core reported zero tested A/AA violations for the collection, navy product dialog and enlarged modelled view.
+
+## Green set and completed four-outfit collection — 5 September 2026
+
+- Visually checked the green modelled view: floral-yoke kurta and coordinating trousers only, no scarf/draped accessory, and no on-image text.
+- Verified four source-photo-based products and zero remaining concept product cards; the old Olive ID is retired rather than reassigned.
+- Verified the green search result, four-view gallery, real-photo decoding, enlargement and size-preference retention.
+- Verified two-piece/no-scarf wording in the green page and both direct/bag enquiries. A four-product bag includes two three-piece sets and two two-piece sets, and survives reload with its note.
+- Verified the collection’s model-image explanation remains visible outside the pictures even with no concept products. FAQ/site notes no longer imply that concept product cards remain. Redundant category controls are hidden when all products share one category.
+- Verified no horizontal overflow at 320, 390, 768, 1024 and 1440 pixels, and correct handling of stale Olive selections.
+- No failed requests or JavaScript exceptions in the checked states. axe-core reported zero tested A/AA violations for the collection, green product dialog and enlarged modelled view.

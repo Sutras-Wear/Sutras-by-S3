@@ -2,8 +2,8 @@
  * SUTRAS — editable store content
  * Replace the images in assets/images/ and edit these entries as your real
  * collection becomes available. See README.md before changing isPreview.
- * The orange, pink and navy sets have modelled main images and actual source photos
- * in their galleries. isPreview describes concept products; imageKind describes
+ * All four sets use modelled main images and actual source photographs
+ * in their galleries. There are no remaining concept product entries. isPreview describes concept products; imageKind describes
  * imagery. No price or size availability has been supplied.
  */
 window.SUTRAS = {
@@ -134,17 +134,44 @@ window.SUTRAS = {
       isPreview: false
     },
     {
-      id: 'olive',
-      name: 'The Olive Co-ord',
-      category: 'Co-ord sets',
-      color: 'Soft olive',
-      colorHex: '#8d9677',
-      image: 'assets/images/olive.webp',
-      imageAlt: 'Illustrative style: a woman wearing a soft olive tunic and matching wide-leg trousers.',
-      description: 'Good together. Effortless apart. An earthy olive tunic-and-trouser look that brings a quietly modern feeling to an Indian-wear wardrobe.',
-      detail: 'Solid-colour inspiration · Relaxed tunic · Matching wide-leg trousers',
+      id: 'green-two-piece-set',
+      name: 'Green Two-Piece Kurta Set',
+      cardName: 'Green Kurta Set',
+      category: 'Kurta sets',
+      color: 'Olive green',
+      colorHex: '#a5af70',
+      image: 'assets/images/green-set-model.webp',
+      imageKind: 'ai-model',
+      imageAlt: 'AI-generated styling preview of an adult woman wearing an olive-green kurta with a red floral neckline panel and coordinating plain green trousers, without a scarf. Fit and small details are illustrative.',
+      description: 'An olive-green kurta with delicate red floral detail on its framed neckline panel and subtle dark cuff trim. Coordinating plain green bottoms complete the two-piece outfit. No scarf or dupatta is included.',
+      detail: 'Two pieces: kurta + bottoms · Floral yoke detail · No scarf / dupatta',
+      setContents: 'Kurta and coordinating plain green bottoms only (2 pieces; no scarf/dupatta)',
+      photoNote: 'The main image is AI-generated styling. Fit, length, drape and small details are approximate. The original store photograph and its detail crops remain in the gallery for comparison.',
+      gallery: [
+        {
+          src: 'assets/images/green-two-piece-set.webp',
+          kind: 'store-photo',
+          label: 'Real photo',
+          alt: 'Actual store photograph of the olive-green kurta and coordinating elastic-waist bottoms, with the room and bedding background removed. There is no scarf.',
+          caption: 'Original store photograph — kurta and coordinating bottoms only, no scarf. Background removed and the view straightened; unseen or cropped-off parts were not generated.'
+        },
+        {
+          src: 'assets/images/green-set-yoke.webp',
+          kind: 'store-photo',
+          label: 'Yoke detail',
+          alt: 'Close-up crop of the actual green kurta’s rounded neckline, dark-edged chest panel and small red floral detail.',
+          caption: 'Floral neckline-panel detail — a closer crop of the same photograph, not a separate camera angle.'
+        },
+        {
+          src: 'assets/images/green-set-cuff.webp',
+          kind: 'store-photo',
+          label: 'Cuff detail',
+          alt: 'Close-up crop of the actual green kurta’s folded sleeve, narrow dark cuff edge and fabric texture.',
+          caption: 'Sleeve and cuff detail — a closer crop of the same photograph, not a separate camera angle.'
+        }
+      ],
       price: null,
-      isPreview: true
+      isPreview: false
     }
   ]
 };
