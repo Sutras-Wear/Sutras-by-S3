@@ -2,7 +2,7 @@
  * SUTRAS — editable store content
  * Replace the images in assets/images/ and edit these entries as your real
  * collection becomes available. See README.md before changing isPreview.
- * The catalogue now has eight source-photo-based products, including the
+ * The catalogue now has eleven source-photo-based products, including the
  * yellow kurti sold as a top only. Modelled views and original-photo galleries
  * are distinguished in the product text; there are no concept product entries. isPreview describes concept products; imageKind describes
  * imagery. No price or size availability has been supplied.
@@ -331,6 +331,126 @@ window.SUTRAS = {
           "label": "Trim detail",
           "alt": "Actual photograph crop: trim detail of the plum purple three-piece kurta set.",
           "caption": "Narrow trouser-trim detail — a closer crop of the same original photograph, not another camera angle."
+        }
+      ]
+    },
+    {
+      "id": "olive-lattice-short-kurti",
+      "name": "Olive Lattice Short Kurti — Top Only",
+      "cardName": "Olive Short Kurti",
+      "color": "Olive green",
+      "colorHex": "#657532",
+      "description": "A short olive-green kurti with lattice-textured chest panels, small white accents and buttons, and white paisley sleeve details. Hip/upper-thigh length. Top only; the model’s ivory trousers and footwear are styling props and are not included.",
+      "detail": "Short top only · Lattice-textured front · White sleeve detail",
+      "category": "Kurtas",
+      "image": "assets/images/olive-lattice-short-kurti-model.webp",
+      "imageKind": "ai-model",
+      "price": null,
+      "isPreview": false,
+      "imageAlt": "AI-generated styling view of an adult woman wearing the olive green short kurti at hip/upper-thigh length. The ivory trousers are styling only, not included.",
+      "setContents": "Olive green short kurti only (1 piece); styling trousers and footwear are not included. No scarf included",
+      "photoNote": "This is a short, top-only kurti. The model’s ivory trousers and footwear are styling props, not included merchandise. The image is AI-generated styling; exact fit and small details are approximate. The original garment photograph is available in the gallery.",
+      "gallery": [
+        {
+          "src": "assets/images/olive-lattice-short-kurti-photo.webp",
+          "kind": "store-photo",
+          "label": "Real photo",
+          "alt": "Actual store photograph of the olive green kurti only, laid on a patterned surface.",
+          "caption": "Original store photograph of the top only. The patterned surface is the background, not part of the garment."
+        },
+        {
+          "src": "assets/images/olive-lattice-short-kurti-front.webp",
+          "kind": "store-photo",
+          "label": "Front detail",
+          "alt": "Actual photograph crop of the olive green kurti: front detail.",
+          "caption": "Front detail — a closer crop of the same supplied photograph, not a separate camera angle."
+        },
+        {
+          "src": "assets/images/olive-lattice-short-kurti-sleeve.webp",
+          "kind": "store-photo",
+          "label": "Sleeve detail",
+          "alt": "Actual photograph crop of the olive green kurti: sleeve detail.",
+          "caption": "Sleeve detail — a closer crop of the same supplied photograph, not a separate camera angle."
+        }
+      ]
+    },
+    {
+      "id": "slate-grey-short-kurti",
+      "name": "Slate Grey Short Kurti — Top Only",
+      "cardName": "Grey Short Kurti",
+      "color": "Slate grey",
+      "colorHex": "#495963",
+      "description": "A short slate-grey kurti with dark tone-on-tone neckline detailing, tie tassels and scattered decorative motifs. Hip/upper-thigh length. Top only; the model’s ivory trousers and footwear are styling props and are not included.",
+      "detail": "Short top only · Tone-on-tone detail · Neck ties",
+      "category": "Kurtas",
+      "image": "assets/images/slate-grey-short-kurti-model.webp",
+      "imageKind": "ai-model",
+      "price": null,
+      "isPreview": false,
+      "imageAlt": "AI-generated styling view of an adult woman wearing the slate grey short kurti at hip/upper-thigh length. The ivory trousers are styling only, not included.",
+      "setContents": "Slate grey short kurti only (1 piece); styling trousers and footwear are not included. No scarf included",
+      "photoNote": "This is a short, top-only kurti. The model’s ivory trousers and footwear are styling props, not included merchandise. The image is AI-generated styling; exact fit and small details are approximate. The original garment photograph is available in the gallery.",
+      "gallery": [
+        {
+          "src": "assets/images/slate-grey-short-kurti-photo.webp",
+          "kind": "store-photo",
+          "label": "Real photo",
+          "alt": "Actual store photograph of the slate grey kurti only, laid on a patterned surface.",
+          "caption": "Original store photograph of the top only. The patterned surface is the background, not part of the garment."
+        },
+        {
+          "src": "assets/images/slate-grey-short-kurti-neckline.webp",
+          "kind": "store-photo",
+          "label": "Neckline detail",
+          "alt": "Actual photograph crop of the slate grey kurti: neckline detail.",
+          "caption": "Neckline detail — a closer crop of the same supplied photograph, not a separate camera angle."
+        },
+        {
+          "src": "assets/images/slate-grey-short-kurti-motifs.webp",
+          "kind": "store-photo",
+          "label": "Motif detail",
+          "alt": "Actual photograph crop of the slate grey kurti: motif detail.",
+          "caption": "Motif detail — a closer crop of the same supplied photograph, not a separate camera angle."
+        }
+      ]
+    },
+    {
+      "id": "wine-floral-short-kurti",
+      "name": "Wine Floral Short Kurti — Top Only",
+      "cardName": "Wine Short Kurti",
+      "color": "Wine purple",
+      "colorHex": "#792244",
+      "description": "A short wine-purple kurti with a pale floral chest motif, a notched neckline and fine coordinating cuff trim. Hip/upper-thigh length. Top only; the model’s ivory trousers and footwear are styling props and are not included.",
+      "detail": "Short top only · Floral neckline detail · Fine cuff trim",
+      "category": "Kurtas",
+      "image": "assets/images/wine-floral-short-kurti-model.webp",
+      "imageKind": "ai-model",
+      "price": null,
+      "isPreview": false,
+      "imageAlt": "AI-generated styling view of an adult woman wearing the wine purple short kurti at hip/upper-thigh length. The ivory trousers are styling only, not included.",
+      "setContents": "Wine purple short kurti only (1 piece); styling trousers and footwear are not included. No scarf included",
+      "photoNote": "This is a short, top-only kurti. The model’s ivory trousers and footwear are styling props, not included merchandise. The image is AI-generated styling; exact fit and small details are approximate. The original garment photograph is available in the gallery.",
+      "gallery": [
+        {
+          "src": "assets/images/wine-floral-short-kurti-photo.webp",
+          "kind": "store-photo",
+          "label": "Real photo",
+          "alt": "Actual store photograph of the wine purple kurti only, laid on a patterned surface.",
+          "caption": "Original store photograph of the top only. The patterned surface is the background, not part of the garment."
+        },
+        {
+          "src": "assets/images/wine-floral-short-kurti-neckline.webp",
+          "kind": "store-photo",
+          "label": "Neckline detail",
+          "alt": "Actual photograph crop of the wine purple kurti: neckline detail.",
+          "caption": "Neckline detail — a closer crop of the same supplied photograph, not a separate camera angle."
+        },
+        {
+          "src": "assets/images/wine-floral-short-kurti-cuff.webp",
+          "kind": "store-photo",
+          "label": "Cuff detail",
+          "alt": "Actual photograph crop of the wine purple kurti: cuff detail.",
+          "caption": "Cuff detail — a closer crop of the same supplied photograph, not a separate camera angle."
         }
       ]
     }

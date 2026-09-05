@@ -8,7 +8,7 @@ An editorial, mobile-friendly storefront for Sutras’ women’s cotton Indian w
 
 ## Current collection
 
-The catalogue now contains **eight products**, with the existing four retained and the repeated white photo counted once:
+The catalogue now contains **eleven products**, with the existing four retained and the repeated white photo counted once:
 
 | Product | Included in the listing |
 | --- | --- |
@@ -20,6 +20,8 @@ The catalogue now contains **eight products**, with the existing four retained a
 | Yellow short floral kurti | **Top only — 1 piece. Model styling trousers/footwear are not included.** |
 | Dark-purple set | Kurta, decorated-hem bottoms, leafy-border dupatta — 3 pieces |
 | Plum-purple set | Kurta, narrow-trim bottoms, small-flower dupatta — 3 pieces |
+
+The olive lattice, slate-grey and wine floral kurtis are also included: all three are **short, hip/upper-thigh-length tops only**, with styling trousers excluded.
 
 Every product has a clean modelled main view and its original-photo gallery. Prices and size availability remain unconfirmed; enquiries go to the store. There are no concept product cards.
 
@@ -103,7 +105,7 @@ Instagram blocked automated access. No actual Instagram photographs, posts, stoc
 
 ## Replace the placeholder photos later
 
-The orange and pink three-piece sets and navy and green two-piece sets use **AI-modelled primary images**, with their actual owner-supplied photographs retained in their galleries. The hero, cotton still life and remaining model images are AI-generated illustrations. All eight displayed products are based on garments supplied by the owner, not concept listings. The yellow item is sold as a top only, not as the complete styled outfit shown on the model. The retired Bela and Gulabi illustrations are still used only in the inspiration moodboard; the old Noor and Olive assets are not product listings. Store-photo and illustrative items are distinguished in the collection, details, search, bag, FAQs and WhatsApp messages. See `PHOTO-NOTES.md` for the real image’s provenance.
+The orange and pink three-piece sets and navy and green two-piece sets use **AI-modelled primary images**, with their actual owner-supplied photographs retained in their galleries. The hero, cotton still life and remaining model images are AI-generated illustrations. All eleven displayed products are based on garments supplied by the owner, not concept listings. The yellow item is sold as a top only, not as the complete styled outfit shown on the model. The retired Bela and Gulabi illustrations are still used only in the inspiration moodboard; the old Noor and Olive assets are not product listings. Store-photo and illustrative items are distinguished in the collection, details, search, bag, FAQs and WhatsApp messages. See `PHOTO-NOTES.md` for the real image’s provenance.
 
 ### Quickest photo replacement
 

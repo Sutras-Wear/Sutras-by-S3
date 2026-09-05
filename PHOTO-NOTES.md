@@ -97,3 +97,7 @@ Each modelled view is AI-generated and may approximate fit, length, drape, print
 ## Yellow length correction
 
 The owner confirmed that the yellow item is a **short kurti**, comparable in length to the white collared top, not a long kurta. Its modelled view was corrected to hip/upper-thigh length while keeping the yellow/white design. The active image is `yellow-kurti-short-model.webp`; the previous image URL and downloadable image pack were also updated. The real-photo gallery is unchanged. Only the kurti is included; ivory model trousers remain styling props.
+
+## Three additional short, top-only kurtis
+
+The owner confirmed that the olive lattice, slate-grey and wine floral tops are all **short**, like the corrected yellow top. Each listing includes the kurti only; ivory model trousers and footwear are styling props, not merchandise. Modelled images have no text or badges. Original supplied photographs and two same-photo detail crops are retained in each gallery; these references retain their patterned background and are not described as background-removed. EXIF/location metadata is not carried into exports. All previous products are retained.
