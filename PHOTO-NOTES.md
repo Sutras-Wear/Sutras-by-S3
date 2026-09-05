@@ -54,3 +54,16 @@ The owner supplied a second photograph (`Pink-piece.jpeg`) showing a pink kurta,
 - `assets/images/pink-set-dupatta.webp`: crop of that photograph showing the dupatta and tassels.
 
 The real-photo edits use pixel-based masking and ordinary resampling; only the modelled view is generative. The original room photograph is not published, and its EXIF/location metadata is not carried into the exports. Pricing, size availability and exact measurements remain unconfirmed. The new product uses a distinct ID; saved enquiries for the retired Bela concept are not silently changed into enquiries for this pink set.
+
+# Navy Two-Piece Kurta Set
+
+The owner supplied `Two-piece.jpeg` and explicitly confirmed **there is no scarf**. The set is a printed kurta/top and matching elastic-waist bottoms. Visible features include small pale motifs on a navy ground, larger intricate paisley areas with restrained muted coral accents, narrow ivory piping and fine pleat/pintuck details.
+
+## Navy image assets
+
+- `assets/images/navy-set-model.webp`: AI-modelled styling view, showing the kurta and trousers only, with both hands free and no scarf, dupatta, shawl or other draped accessory. There are no words, badges or borders on the image. Exact fit, length, cut and small details remain illustrative.
+- `assets/images/navy-two-piece-set.webp`: the two actual garments isolated from the bedding and room, then straightened on a neutral backdrop. The larger teal/tan paisley pattern of the bedding is not part of the clothing.
+- `assets/images/navy-set-neckline.webp`: neckline/piping crop from the same real photograph.
+- `assets/images/navy-set-print.webp`: printed motifs and pleat-detail crop from that photograph.
+
+Real-photo processing was pixel-based background masking and ordinary resampling; no hidden garment parts were generated in those reference views. The unedited room photo is not published and its EXIF/location metadata is not carried into the exports. The product description and both direct/bag WhatsApp enquiries explicitly state that no scarf/dupatta is included. No price or size availability was supplied.

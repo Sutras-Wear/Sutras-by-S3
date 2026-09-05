@@ -86,3 +86,13 @@ This is a limited automated audit, not an accessibility certification. Full manu
 - Verified a combined orange/pink bag and note survive a reload; stale Bela selections are not converted to pink-set selections.
 - Verified no horizontal overflow at 320, 390, 768, 1024 and 1440 pixels.
 - No failed requests or JavaScript exceptions in the checked states. axe-core reported zero tested A/AA violations for the collection, pink product dialog and enlarged modelled view.
+
+## Navy two-piece update — 5 September 2026
+
+- Visually checked the generated modelled view: kurta and trousers only, both hands free, and no scarf/dupatta or draped accessory.
+- Verified three actual photographed products plus the one remaining Olive concept, with Gulabi retired using a new navy product ID rather than reassigning saved selections.
+- Verified navy search, the three-item Kurta sets filter, and automatic hiding of the empty Dresses category.
+- Verified the four-view navy gallery, real-photo decoding, enlargement and selected-size retention, with no labels over the images.
+- Verified that product copy and both direct/bag WhatsApp messages explicitly say the navy set has two pieces and no scarf/dupatta. Orange/pink enquiries retain their correct three-piece contents.
+- Verified a three-product bag and note across reload, stale Gulabi selection handling, and responsive widths of 320, 390, 768, 1024 and 1440 pixels.
+- No failed requests or JavaScript exceptions in the checked states. axe-core reported zero tested A/AA violations for the collection, navy product dialog and enlarged modelled view.

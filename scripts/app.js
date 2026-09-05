@@ -201,7 +201,8 @@
       ? `Hi Sutras by S³! I saw the illustrative style preview “${product.name}” (${product.category}, ${product.color}) on your website. I understand this is inspiration, not confirmed stock. Could you share similar current pieces, prices and available sizes?`
       : `Hi Sutras by S³! I’m interested in ${product.name} (${product.category}, ${product.color}). Could you confirm the price and availability?`;
     const imageNote = primaryImageKind(product) === 'ai-model' ? ' I viewed the AI-modelled image and understand that fit and styling are approximate; please confirm the actual garment details.' : '';
-    return `${intro}${imageNote}\nMy usual size: ${size === 'Not sure' ? 'I would appreciate sizing advice' : size}.`;
+    const contentsNote = product.setContents ? `\nSet: ${product.setContents}.` : '';
+    return `${intro}${imageNote}${contentsNote}\nMy usual size: ${size === 'Not sure' ? 'I would appreciate sizing advice' : size}.`;
   }
 
   function galleryFor(product) {
@@ -327,7 +328,8 @@
       ...bag.map((item, index) => {
         const product = byId.get(item.id);
         const size = item.size === 'Not sure' ? 'sizing advice please' : item.size;
-        return `${index + 1}. ${product.name}${product.isPreview ? ' (style preview)' : primaryImageKind(product) === 'ai-model' ? ' (AI-modelled view; real photo in gallery)' : ' (store photograph)'} — ${product.color}\n   Usual size: ${size} | Requested quantity: ${item.quantity}`;
+        const contentsNote = product.setContents ? `\n   Set: ${product.setContents}` : '';
+        return `${index + 1}. ${product.name}${product.isPreview ? ' (style preview)' : primaryImageKind(product) === 'ai-model' ? ' (AI-modelled view; real photo in gallery)' : ' (store photograph)'} — ${product.color}${contentsNote}\n   Usual size: ${size} | Requested quantity: ${item.quantity}`;
       }),
       '',
       ...(orderNote.trim() ? [`My note: ${orderNote.trim()}`, ''] : []),

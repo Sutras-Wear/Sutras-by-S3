@@ -11,7 +11,8 @@ An editorial, mobile-friendly storefront for Sutras’ women’s cotton Indian w
 - **Orange Three-Piece Kurta Set** now uses the owner-approved **AI model view** as its primary image. The original store photograph and two real-photo detail crops remain in the gallery. Image provenance is described in the gallery captions and product details, not overlaid on the photographs.
 - The main modelled view is an AI-generated styling illustration, not proof of exact fit or drape. Images have no overlaid source badges or bottom text strips; the AI-styling explanation is kept in the product details. The other three gallery views come from **one real store photograph**, not three separate camera angles.
 - **Pink Three-Piece Kurta Set** is the second owner-photographed product, with a clean modelled main image, the real set photograph and neckline/dupatta detail crops. It replaces the Bela concept card using a new product ID.
-- The remaining two cards, Gulabi and Olive, are identified as **Style preview** below their images and are not confirmed stock. The hero and moodboard also remain illustrative.
+- **Navy Two-Piece Kurta Set** is the third photographed product. It contains the printed kurta and matching bottoms only: **no scarf/dupatta**. The modelled image has no draped accessory, and the real set, neckline and print close-ups remain in its gallery. It replaces the Gulabi concept using a new ID.
+- The remaining Olive card is identified as **Style preview** below its image and is not confirmed stock. The hero and moodboard also remain illustrative.
 - Price, size availability, exact measurements and stock must still be confirmed on WhatsApp. The folded bottoms have not been assigned an unverified cut such as churidar, palazzo or salwar.
 
 Website: **https://sutras-wear.github.io/Sutras-by-S3/**  
@@ -84,7 +85,7 @@ Instagram blocked automated access. No actual Instagram photographs, posts, stoc
 
 ## Replace the placeholder photos later
 
-The orange and pink three-piece sets use **AI-modelled primary images**, with their actual owner-supplied photographs retained in their galleries. The hero, cotton still life and remaining model images are AI-generated illustrations. The remaining Gulabi and Olive style names/descriptions are concepts, not confirmed products. The retired Bela illustration is still used only in the inspiration moodboard. Store-photo and illustrative items are distinguished in the collection, details, search, bag, FAQs and WhatsApp messages. See `PHOTO-NOTES.md` for the real image’s provenance.
+The orange and pink three-piece sets and navy two-piece set use **AI-modelled primary images**, with their actual owner-supplied photographs retained in their galleries. The hero, cotton still life and remaining model images are AI-generated illustrations. The remaining Olive style name/description is a concept, not a confirmed product. The retired Bela and Gulabi illustrations are still used only in the inspiration moodboard. Store-photo and illustrative items are distinguished in the collection, details, search, bag, FAQs and WhatsApp messages. See `PHOTO-NOTES.md` for the real image’s provenance.
 
 ### Quickest photo replacement
 
@@ -103,7 +104,11 @@ Replace these files with real, permission-cleared images using the **same filena
 | `assets/images/pink-set-neckline.webp` | Same-photo neckline/pleat crop | 4:5 portrait |
 | `assets/images/pink-set-dupatta.webp` | Same-photo dupatta/tassel crop | 4:5 portrait |
 | `assets/images/bela.webp` | Retired concept; retained for the moodboard | 3:4 portrait |
-| `assets/images/gulabi.webp` | Third card and moodboard | 3:4 portrait |
+| `assets/images/navy-set-model.webp` | Navy two-piece set, third collection card | 3:4 portrait |
+| `assets/images/navy-two-piece-set.webp` | Actual navy set, no scarf | 3:4 portrait |
+| `assets/images/navy-set-neckline.webp` | Same-photo neckline/piping crop | 4:5 portrait |
+| `assets/images/navy-set-print.webp` | Same-photo print/pleat crop | 4:5 portrait |
+| `assets/images/gulabi.webp` | Retired concept; retained in moodboard | 3:4 portrait |
 | `assets/images/olive.webp` | Fourth card | 3:4 portrait |
 | `assets/images/cotton.webp` | Story and moodboard | 4:5 portrait |
 | `assets/images/social-card.jpg` | Link-sharing thumbnail | 1200 × 630 landscape |
@@ -132,6 +137,7 @@ Open **`scripts/catalog.js`**. Each product has an editable entry:
 
 - `isPreview` distinguishes concept products from actual store products. It does **not** assert that an image is a genuine photo.
 - `imageKind` identifies the primary image: `ai-model`, `store-photo` or `style-preview`. Each additional gallery image has its own `kind`. These flags drive gallery captions, product details, search, bag and enquiry disclosures. They do not add badges over photographs.
+- Optional `setContents` states exactly which pieces are included, and is included in direct and bag WhatsApp enquiries. In particular, the navy set has **no scarf/dupatta**.
 - Optional `cardName` provides a shorter name for cards/search/bag while enquiries use the full product `name`.
 - Optional `photoNote` explains any actual photo editing; it is shown in the product details.
 - Optional `gallery` contains **additional** views: `{ src, label, alt, caption }`. The primary `image` is automatically the first view. Label crops of one photo honestly rather than describing them as additional angles. Remove or update the additional views when replacing the primary product photo.
@@ -173,7 +179,7 @@ Do not put private customer information, payment secrets or credentials in this 
 
 ## Asset notes
 
-- Orange and pink set photography: supplied by the store owner; background isolation, straightening and close-up crops only. No garment details were generated.
+- Orange, pink and navy set photography: supplied by the store owner; background isolation, straightening and close-up crops only. No garment details were generated.
 - Campaign, model and cotton imagery: original AI-generated temporary illustrations created for this site.
 - Icons: original inline SVG line drawings.
 - Fonts: Cormorant Garamond and DM Sans, self-hosted under the SIL Open Font License. Their license texts are in `assets/fonts/`.
