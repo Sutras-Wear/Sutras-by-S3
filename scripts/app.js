@@ -129,12 +129,33 @@
 
   $$('#menu-dialog nav a').forEach(link => link.addEventListener('click', () => $('#menu-dialog').close()));
 
+  function primaryImageKind(product) {
+    return ['ai-model', 'store-photo', 'style-preview'].includes(product.imageKind)
+      ? product.imageKind : (product.isPreview ? 'style-preview' : 'store-photo');
+  }
+
+  function imageTypeLabel(kind) {
+    return kind === 'ai-model' ? 'AI modelled view' : kind === 'store-photo' ? 'Store photograph' : 'Illustrative style preview';
+  }
+
+  function badgeClass(kind) {
+    return `preview-tag${kind === 'ai-model' ? ' ai-model-tag' : kind === 'store-photo' ? ' store-photo-tag' : ''}`;
+  }
+
+  function badgeText(kind, detail = false) {
+    return kind === 'ai-model' ? 'AI MODEL VIEW' : kind === 'store-photo' ? (detail ? 'ACTUAL STORE PHOTO' : 'STORE PHOTO') : (detail ? 'ILLUSTRATIVE STYLE PREVIEW' : 'STYLE PREVIEW');
+  }
+
+  function imageBadge(kind, detail = false, id = '') {
+    return `<span${id ? ` id="${id}"` : ''} class="${badgeClass(kind)}">${badgeText(kind, detail)}</span>`;
+  }
+
   function productCard(product, index) {
     return `<article class="product-card" style="animation-delay:${index * 40}ms">
-      <div class="product-image-wrap">
-        <button type="button" class="product-image-link" data-product="${escape(product.id)}" aria-label="View ${escape(product.name)}${product.isPreview ? ', illustrative style preview' : ''}">
+      <div class="product-image-wrap${primaryImageKind(product) === 'ai-model' ? ' model-image-wrap' : ''}">
+        <button type="button" class="product-image-link" data-product="${escape(product.id)}" aria-label="View ${escape(product.name)}${product.isPreview ? ', illustrative style preview' : primaryImageKind(product) === 'ai-model' ? ', AI-modelled view' : ''}">
           <img src="${escape(product.image)}" alt="${escape(product.imageAlt)}" width="896" height="1200" loading="lazy" decoding="async">
-          ${product.isPreview ? '<span class="preview-tag">STYLE PREVIEW</span>' : '<span class="preview-tag store-photo-tag">STORE PHOTO</span>'}
+          ${imageBadge(primaryImageKind(product))}
           <span class="image-view-label">Take a closer look ↗</span>
         </button>
         <button class="quick-add" type="button" data-product="${escape(product.id)}" aria-label="Choose your size preference for ${escape(product.name)}">${icon('plus')}</button>
@@ -177,7 +198,7 @@
       return tokens.every(token => haystack.includes(token));
     });
     $('#search-result-count').textContent = query ? `${found.length} matching style${found.length === 1 ? '' : 's'}` : `Explore all ${products.length} ${products.every(product => product.isPreview) ? 'style previews' : 'styles'}`;
-    $('#search-results').innerHTML = found.length ? found.map(product => `<button class="search-result" type="button" data-product="${escape(product.id)}"><img src="${escape(product.image)}" alt="${escape(product.imageAlt)}" width="62" height="83"><span><strong>${escape(product.cardName || product.name)}</strong><small>${escape(product.category)} · ${escape(product.color)}</small><small>${product.isPreview ? 'Illustrative style preview' : 'Store photograph · ' + escape(priceText(product))}</small></span></button>`).join('') : '<div class="search-empty"><h3>No match, just yet.</h3><p>Try a colour or a category, like “blue” or “kurta”. Our actual collection is a WhatsApp message away.</p></div>';
+    $('#search-results').innerHTML = found.length ? found.map(product => `<button class="search-result" type="button" data-product="${escape(product.id)}"><img src="${escape(product.image)}" alt="${escape(product.imageAlt)}" width="62" height="83"><span><strong>${escape(product.cardName || product.name)}</strong><small>${escape(product.category)} · ${escape(product.color)}</small><small>${escape(imageTypeLabel(primaryImageKind(product)))}${product.isPreview ? '' : ' · ' + escape(priceText(product))}</small></span></button>`).join('') : '<div class="search-empty"><h3>No match, just yet.</h3><p>Try a colour or a category, like “blue” or “kurta”. Our actual collection is a WhatsApp message away.</p></div>';
   }
 
   $('#search-input').addEventListener('input', renderSearch);
@@ -192,28 +213,30 @@
     const intro = product.isPreview
       ? `Hi Sutras by S³! I saw the illustrative style preview “${product.name}” (${product.category}, ${product.color}) on your website. I understand this is inspiration, not confirmed stock. Could you share similar current pieces, prices and available sizes?`
       : `Hi Sutras by S³! I’m interested in ${product.name} (${product.category}, ${product.color}). Could you confirm the price and availability?`;
-    return `${intro}\nMy usual size: ${size === 'Not sure' ? 'I would appreciate sizing advice' : size}.`;
+    const imageNote = primaryImageKind(product) === 'ai-model' ? ' I viewed the AI-modelled image and understand that fit and styling are approximate; please confirm the actual garment details.' : '';
+    return `${intro}${imageNote}\nMy usual size: ${size === 'Not sure' ? 'I would appreciate sizing advice' : size}.`;
   }
 
   function galleryFor(product) {
     return [{
       src: product.image,
       alt: product.imageAlt,
-      label: product.isPreview ? 'Style preview' : 'Full set',
+      kind: primaryImageKind(product),
+      label: primaryImageKind(product) === 'ai-model' ? 'AI model' : product.isPreview ? 'Style preview' : 'Full set',
       caption: product.isPreview ? 'AI-generated style inspiration, not a confirmed stock photograph.' : (product.photoNote || 'Actual store photograph. Please confirm current availability on WhatsApp.')
-    }, ...(Array.isArray(product.gallery) ? product.gallery.filter(photo => photo && photo.src && photo.label) : [])];
+    }, ...(Array.isArray(product.gallery) ? product.gallery.filter(photo => photo && photo.src && photo.label).map(photo => ({ ...photo, kind: photo.kind || (product.isPreview ? 'style-preview' : 'store-photo') })) : [])];
   }
 
   function productMedia(product) {
     const photo = activeGallery[0];
-    const stage = `<div class="product-detail-image${product.isPreview ? '' : ' real-product-image'}">
+    const stage = `<div class="product-detail-image${photo.kind === 'ai-model' ? ' modelled-product-image' : photo.kind === 'store-photo' ? ' real-product-image' : ''}">
       <img id="product-main-image" src="${escape(photo.src)}" alt="${escape(photo.alt)}" width="${product.isPreview ? '896' : '1200'}" height="${product.isPreview ? '1200' : '1600'}">
-      ${product.isPreview ? '<span class="preview-tag">ILLUSTRATIVE STYLE PREVIEW</span>' : '<span class="preview-tag store-photo-tag">ACTUAL STORE PHOTO</span>'}
-      ${!product.isPreview ? `<button class="photo-zoom-button" type="button" data-zoom-photo aria-label="Enlarge the selected product photograph">${icon('search')}<span>View larger</span></button>` : ''}
+      ${imageBadge(photo.kind, true, 'product-photo-badge')}
+      ${!product.isPreview ? `<button class="photo-zoom-button" type="button" data-zoom-photo aria-label="Enlarge the selected product image">${icon('search')}<span>View larger</span></button>` : ''}
     </div>`;
     if (activeGallery.length === 1) return stage;
     return `<div class="product-detail-media has-gallery">${stage}
-      <div class="photo-gallery" role="group" aria-label="Choose a view of this product">
+      <div class="photo-gallery" style="--gallery-columns:${Math.min(activeGallery.length, 4)}" role="group" aria-label="Choose a view of this product">
         ${activeGallery.map((image, index) => `<button class="photo-thumbnail" type="button" data-photo-index="${index}" aria-pressed="${index === 0}" aria-label="Show ${escape(image.label.toLowerCase())}"><img src="${escape(image.src)}" alt="" width="45" height="60"><span>${escape(image.label)}</span></button>`).join('')}
       </div>
       <p class="photo-caption" id="photo-caption" aria-live="polite">${escape(photo.caption)}</p>
@@ -228,6 +251,12 @@
     image.src = photo.src;
     image.alt = photo.alt || activeProduct.imageAlt;
     image.removeAttribute('data-fallback');
+    const stage = image.parentElement;
+    stage.classList.toggle('modelled-product-image', photo.kind === 'ai-model');
+    stage.classList.toggle('real-product-image', photo.kind === 'store-photo');
+    const badge = $('#product-photo-badge');
+    badge.className = badgeClass(photo.kind);
+    badge.textContent = badgeText(photo.kind, true);
     $$('.photo-thumbnail').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.photoIndex) === index)));
     const caption = $('#photo-caption');
     if (caption) caption.textContent = photo.caption || '';
@@ -264,7 +293,7 @@
         <p class="detail-color"><span class="color-dot" style="background:${colorValue(product)}"></span>${escape(product.color)}</p>
         <p class="detail-description">${escape(product.description)}</p>
         <p class="detail-features">${escape(product.detail)}</p>
-        ${product.isPreview ? '<p class="preview-notice"><strong>A little inspiration, not a stock listing.</strong>This AI-generated image and style name are placeholders. Ask us about similar real pieces, prices and availability.</p>' : `<p class="preview-notice real-photo-notice"><strong>Photographed by Sutras.</strong>${escape(product.photoNote || 'Actual product photograph. Please confirm the price, sizing and availability with us.')}</p>`}
+        ${product.isPreview ? '<p class="preview-notice"><strong>A little inspiration, not a stock listing.</strong>This AI-generated image and style name are placeholders. Ask us about similar real pieces, prices and availability.</p>' : `<p class="preview-notice ${primaryImageKind(product) === 'ai-model' ? 'ai-model-notice' : 'real-photo-notice'}"><strong>${primaryImageKind(product) === 'ai-model' ? 'About the modelled view.' : 'Photographed by Sutras.'}</strong>${escape(product.photoNote || 'Actual product photograph. Please confirm the price, sizing and availability with us.')}</p>`}
         <p class="detail-size-label" id="size-label">Your usual size <span>— a preference, not confirmed availability</span></p>
         <div class="size-list" role="group" aria-labelledby="size-label">${sizes.map(size => `<button class="size-option" type="button" data-size="${escape(size)}" aria-pressed="${size === selectedSize}">${escape(size)}</button>`).join('')}</div>
         <p class="size-helper">Not sure? We can help with the actual garment’s fit.</p>
@@ -306,14 +335,16 @@
 
   function enquiryMessage() {
     const hasPreviews = bag.some(item => byId.get(item.id).isPreview);
+    const hasModelledViews = bag.some(item => primaryImageKind(byId.get(item.id)) === 'ai-model');
     const lines = [
       'Hi Sutras by S³! I’d love to enquire about pure cotton Indian wear.',
       hasPreviews ? 'My selection below may include real product photos and illustrative style previews. Only items labelled “style preview” are inspiration, not confirmed stock. Please confirm availability of the photographed pieces and share real alternatives for the previews, with prices and sizes.' : 'I saved these pieces on your website. Please confirm prices and availability.',
+      ...(hasModelledViews ? ['AI-modelled views are styling illustrations. Please confirm the actual garment details and fit.'] : []),
       '',
       ...bag.map((item, index) => {
         const product = byId.get(item.id);
         const size = item.size === 'Not sure' ? 'sizing advice please' : item.size;
-        return `${index + 1}. ${product.name}${product.isPreview ? ' (style preview)' : ' (store photograph)'} — ${product.color}\n   Usual size: ${size} | Requested quantity: ${item.quantity}`;
+        return `${index + 1}. ${product.name}${product.isPreview ? ' (style preview)' : primaryImageKind(product) === 'ai-model' ? ' (AI-modelled view; real photo in gallery)' : ' (store photograph)'} — ${product.color}\n   Usual size: ${size} | Requested quantity: ${item.quantity}`;
       }),
       '',
       ...(orderNote.trim() ? [`My note: ${orderNote.trim()}`, ''] : []),
@@ -344,13 +375,13 @@
         <img src="${escape(product.image)}" alt="${escape(product.imageAlt)}" width="79" height="106">
         <div class="bag-item-content">
           <div class="bag-item-heading"><h3>${escape(product.cardName || product.name)}</h3><button class="bag-remove" type="button" data-remove="${index}" aria-label="Remove ${escape(product.name)}, size ${escape(item.size)}, from your bag">Remove</button></div>
-          <p>${escape(product.color)} · ${item.size === 'Not sure' ? 'Size: advice please' : `Usual size: ${escape(item.size)}`}<br>${product.isPreview ? 'Illustrative style preview' : 'Store photograph · ' + escape(product.category)}</p>
+          <p>${escape(product.color)} · ${item.size === 'Not sure' ? 'Size: advice please' : `Usual size: ${escape(item.size)}`}<br>${escape(imageTypeLabel(primaryImageKind(product)))}${product.isPreview ? '' : ' · ' + escape(product.category)}</p>
           <div class="bag-item-bottom"><div class="quantity-controls" role="group" aria-label="Requested quantity for ${escape(product.name)}, size ${escape(item.size)}"><button type="button" data-quantity="${index}" data-change="-1" aria-label="Decrease quantity for ${escape(product.name)}" ${item.quantity <= 1 ? 'disabled' : ''}>${icon('minus')}</button><span class="quantity-value">${item.quantity}</span><button type="button" data-quantity="${index}" data-change="1" aria-label="Increase quantity for ${escape(product.name)}" ${item.quantity >= maxQuantity ? 'disabled' : ''}>${icon('plus')}</button></div><span>${escape(priceText(product))}</span></div>
         </div>
       </article>`;
     }).join('') + '<button class="clear-bag" type="button" data-clear-bag>Clear entire bag</button>';
     $('#bag-summary').textContent = `${count} requested piece${count === 1 ? '' : 's'} · ${bag.length} selection${bag.length === 1 ? '' : 's'}`;
-    $('.bag-disclaimer').textContent = `Opens WhatsApp with your selection. Nothing is ordered, reserved or charged on this website.${bag.some(item => byId.get(item.id).isPreview) ? ' Preview styles are not confirmed stock.' : ''}${storageAvailable ? '' : ' This preview cannot save your bag between visits.'}`;
+    $('.bag-disclaimer').textContent = `Opens WhatsApp with your selection. Nothing is ordered, reserved or charged on this website.${bag.some(item => byId.get(item.id).isPreview) ? ' Preview styles are not confirmed stock.' : ''}${bag.some(item => primaryImageKind(byId.get(item.id)) === 'ai-model') ? ' AI-modelled views illustrate styling; actual fit may differ.' : ''}${storageAvailable ? '' : ' This preview cannot save your bag between visits.'}`;
     updateWhatsAppLinks();
   }
 
@@ -428,8 +459,8 @@
   $$('[data-collection-preview-note]').forEach(note => note.hidden = !hasPreviewProducts);
   $$('[data-imagery-note]').forEach(note => note.hidden = !config.imageryIsIllustrative);
   if (hasPreviewProducts && hasRealProducts) {
-    $('#stock-faq-answer').textContent = 'Items labelled “Store photo” use photographs supplied by Sutras. Items labelled “Style preview” are AI-generated inspiration, not confirmed stock. We are adding more real photographs over time. Please confirm each actual piece, price and size on WhatsApp before ordering.';
-    $('#imagery-info').textContent = 'Cards labelled “Store photo” use actual photographs supplied by Sutras. Any background cleanup and detail crops are described in the product details; those crops are not additional camera angles. Cards labelled “Style preview”, the campaign and the moodboard use clearly labelled AI-generated illustrations. Please confirm prices, measurements and availability with Sutras.';
+    $('#stock-faq-answer').textContent = 'AI model views are generated styling illustrations of store products, with approximate fit and drape; the original store photographs are available in the product gallery. Cards labelled “Style preview” are concept examples, not confirmed stock. Confirm actual pieces, prices, measurements and availability on WhatsApp.';
+    $('#imagery-info').textContent = 'AI model views are generated illustrations, not photographs of a model wearing the actual garment. Fit, length, drape and small details are approximate. Images labelled “Actual store photo” are the original product photographs or disclosed crops. The campaign, moodboard and other style-preview cards also use AI-generated imagery. Please confirm the real garment details before ordering.';
   }
   if (!hasPreviewProducts) {
     $('#stock-faq-answer').textContent = 'Please message us to confirm current availability, prices and sizing for the actual pieces before ordering. Product availability is confirmed personally on WhatsApp, not by this website.';

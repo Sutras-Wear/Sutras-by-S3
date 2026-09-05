@@ -2,8 +2,8 @@
  * SUTRAS — editable store content
  * Replace the images in assets/images/ and edit these entries as your real
  * collection becomes available. See README.md before changing isPreview.
- * The orange three-piece set uses a store photograph. Other styles remain
- * illustrative previews. No price or size availability has been supplied.
+ * The orange set has an AI-modelled main image and real source photos in its
+ * gallery. isPreview describes concept products; imageKind describes imagery. No price or size availability has been supplied.
  */
 window.SUTRAS = {
   name: 'Sutras by S³',
@@ -19,20 +19,30 @@ window.SUTRAS = {
       category: 'Kurta sets',
       color: 'Orange & multicolour',
       colorHex: '#e86a29',
-      image: 'assets/images/orange-three-piece-set.webp',
-      imageAlt: 'Actual Sutras photograph of an orange three-piece outfit: a decorated kurta, folded bottoms and a scarf, arranged together on a cleaned neutral background.',
-      description: 'Warm orange, a decorative neckline, leaf motifs and coordinating printed fabric. This three-piece set brings together a kurta (the top), bottoms and a dupatta (the scarf).',
+      image: 'assets/images/orange-set-model.webp',
+      imageKind: 'ai-model',
+      imageAlt: 'AI-generated styling preview of an adult woman wearing the orange kurta with printed bottoms and a plain orange dupatta. Fit and small details are illustrative.',
+      description: 'An orange kurta with a decorative neckline and leaf motifs, paired with multicoloured printed bottoms and a matching plain orange dupatta. Three pieces: the kurta (top), bottoms and dupatta (scarf).',
       detail: 'Three pieces shown · Embellished neckline · Leaf details & patterned fabric',
-      photoNote: 'Original store photo, straightened with the background removed. Detail views are crops from this same photograph.',
+      photoNote: 'The main image is AI-generated styling. Fit, length, drape and small details are approximate. The original store photograph and its detail crops remain in the gallery for comparison.',
       gallery: [
         {
+          src: 'assets/images/orange-three-piece-set.webp',
+          kind: 'store-photo',
+          label: 'Real photo',
+          alt: 'Actual store photograph of the orange three-piece set laid out together, with the background removed.',
+          caption: 'Original store photograph — background removed and straightened. Use this view to check the photographed garment details.'
+        },
+        {
           src: 'assets/images/orange-set-neckline.webp',
+          kind: 'store-photo',
           label: 'Neckline detail',
           alt: 'Close-up crop of the orange kurta’s decorated neckline from the same store photograph.',
           caption: 'Neckline detail — a closer crop of the same photograph, not a separate camera angle.'
         },
         {
           src: 'assets/images/orange-set-print.webp',
+          kind: 'store-photo',
           label: 'Fabric detail',
           alt: 'Close-up crop of the multicoloured printed fabric shown with the orange kurta set.',
           caption: 'Printed fabric detail — a closer crop of the same photograph, not a separate camera angle.'

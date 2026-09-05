@@ -8,8 +8,8 @@ An editorial, mobile-friendly storefront for Sutras’ women’s cotton Indian w
 
 ## Current collection
 
-- **Orange Three-Piece Kurta Set** is the first real, owner-photographed product. It is labelled **Store photo** and has full-set, neckline and fabric views, plus an enlarged-photo viewer.
-- Its three views come from **one photograph**, not three camera angles. The background was removed and the outfit straightened using pixel-based editing, not generative imagery.
+- **Orange Three-Piece Kurta Set** now uses the owner-approved **AI model view** as its primary image. The original store photograph and two real-photo detail crops remain in the gallery. The badge changes correctly for each selected image.
+- The main modelled view is an AI-generated styling illustration, not proof of exact fit or drape. Its small visible AI-preview footer is retained. The other three gallery views come from **one real store photograph**, not three separate camera angles.
 - The remaining three cards are clearly labelled **Style preview** and are not confirmed stock. The hero and moodboard also remain illustrative.
 - Price, size availability, exact measurements and stock must still be confirmed on WhatsApp. The folded bottoms have not been assigned an unverified cut such as churidar, palazzo or salwar.
 
@@ -83,7 +83,7 @@ Instagram blocked automated access. No actual Instagram photographs, posts, stoc
 
 ## Replace the placeholder photos later
 
-The orange three-piece set uses an **actual owner-supplied photograph**. The hero, cotton still life and remaining model images are AI-generated illustrations. The Bela, Gulabi and Olive style names/descriptions are concepts, not confirmed products. Store-photo and illustrative items are distinguished in the collection, details, search, bag, FAQs and WhatsApp messages. See `PHOTO-NOTES.md` for the real image’s provenance.
+The orange three-piece set uses an **owner-approved AI-modelled primary image**, with the actual owner-supplied photograph retained in the gallery. The hero, cotton still life and remaining model images are AI-generated illustrations. The Bela, Gulabi and Olive style names/descriptions are concepts, not confirmed products. Store-photo and illustrative items are distinguished in the collection, details, search, bag, FAQs and WhatsApp messages. See `PHOTO-NOTES.md` for the real image’s provenance.
 
 ### Quickest photo replacement
 
@@ -92,7 +92,8 @@ Replace these files with real, permission-cleared images using the **same filena
 | File | Used for | Recommended crop |
 | --- | --- | --- |
 | `assets/images/hero.webp` | Main campaign | Portrait, with a little space around the model |
-| `assets/images/orange-three-piece-set.webp` | Actual orange set, first card | 3:4 portrait |
+| `assets/images/orange-set-model.webp` | AI-modelled primary image; disclosure footer retained | Portrait, shown without cropping |
+| `assets/images/orange-three-piece-set.webp` | Actual orange set, secondary gallery view | 3:4 portrait |
 | `assets/images/orange-set-neckline.webp` | Same-photo neckline crop | 4:5 portrait |
 | `assets/images/orange-set-print.webp` | Same-photo fabric crop | 4:5 portrait |
 | `assets/images/noor.webp` | Unused original illustration, retained for reference | 3:4 portrait |
@@ -124,6 +125,8 @@ Open **`scripts/catalog.js`**. Each product has an editable entry:
 }
 ```
 
+- `isPreview` distinguishes concept products from actual store products. It does **not** assert that an image is a genuine photo.
+- `imageKind` identifies the primary image: `ai-model`, `store-photo` or `style-preview`. Each additional gallery image has its own `kind`. These flags drive card, gallery, search, bag and enquiry disclosures.
 - Optional `cardName` provides a shorter name for cards/search/bag while enquiries use the full product `name`.
 - Optional `photoNote` explains any actual photo editing; it is shown in the product details.
 - Optional `gallery` contains **additional** views: `{ src, label, alt, caption }`. The primary `image` is automatically the first view. Label crops of one photo honestly rather than describing them as additional angles. Remove or update the additional views when replacing the primary product photo.

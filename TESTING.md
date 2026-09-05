@@ -61,3 +61,12 @@ This is a limited automated audit, not an accessibility certification. Full manu
 - No failed local image requests or JavaScript exceptions in the checked states.
 - axe-core reported no A/AA violations for the mixed collection, real-photo detail dialog and enlarged image viewer in the checked Chromium states.
 - The original photo with incidental people/background was not added to the public website; only the cleaned exports were used. Image metadata was not carried into the exports.
+
+## Approved AI-modelled main-image update — 5 September 2026
+
+- Verified the approved modelled image is primary in the collection card, search, product details and enquiry bag.
+- Kept the actual store photograph and its two detail crops in the four-image gallery.
+- Verified per-image AI/actual-photo badges, captions, enlargement and size-preference preservation when switching views.
+- Verified AI-modelled-image disclosures in both direct and bag WhatsApp enquiries without changing the real product identity or claiming availability.
+- Verified responsive layouts at 320, 390, 768 and 1440 pixels, no JavaScript exceptions, and no automated axe-core A/AA violations in the tested collection and product-dialog states.
+- Retained the visible AI-preview footer in the approved image; the primary card and detail view use contain rather than cropping the image.
