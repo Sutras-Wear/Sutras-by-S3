@@ -41,3 +41,16 @@ At the owner’s request, the displayed image has no footer or on-image labels. 
 ## Clean image presentation
 
 The clean model asset comes from the exact approved generated artwork before the presentation footer was added. The clothing, model and pose were not regenerated. The former `orange-set-model.webp` URL also serves the same clean artwork for compatibility; the current catalogue uses the new clean filename to avoid an old cached footer. Product-card, gallery, campaign and still-life source labels are no longer placed over images. Concept-only items remain identified as “Style preview” below their pictures.
+
+# Pink Three-Piece Kurta Set
+
+The owner supplied a second photograph (`Pink-piece.jpeg`) showing a pink kurta, matching bottoms with a gathered waist, and a folded pink dupatta with tassels. The visible tunic details include a gold-trimmed V neckline and cuffs, fine vertical front pleats/pintucks, and scattered small gold motifs.
+
+## Pink image assets
+
+- `assets/images/pink-set-model.webp`: clean AI-modelled styling image without on-image text, continuing the requested presentation style. The model’s pose, exact fit, sleeve/hem length, drape and small details are illustrative rather than measurements of the actual garment.
+- `assets/images/pink-three-piece-set.webp`: real source-photo clothing isolated from bedding, furniture and other garments, with rotation and a neutral background. No hidden or cropped-off fabric was generated.
+- `assets/images/pink-set-neckline.webp`: crop of the same real photograph showing the neckline, fine pleats and gold details.
+- `assets/images/pink-set-dupatta.webp`: crop of that photograph showing the dupatta and tassels.
+
+The real-photo edits use pixel-based masking and ordinary resampling; only the modelled view is generative. The original room photograph is not published, and its EXIF/location metadata is not carried into the exports. Pricing, size availability and exact measurements remain unconfirmed. The new product uses a distinct ID; saved enquiries for the retired Bela concept are not silently changed into enquiries for this pink set.

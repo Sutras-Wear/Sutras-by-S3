@@ -76,3 +76,13 @@ This is a limited automated audit, not an accessibility certification. Full manu
 - Removed source badges from product images and galleries, and removed the campaign/still-life image-disclosure overlays.
 - Exported the exact approved model artwork without the added text strip; garment/model content was not regenerated.
 - Kept image-origin explanations in product details and gallery captions, with concept status below the relevant product images.
+
+## Pink set update — 5 September 2026
+
+- Verified two photographed products (orange and pink) and two remaining concept styles, with the retired Bela product ID removed rather than reassigned.
+- Verified the pink card, fuchsia search, two-item Kurta sets filter and automatic hiding of the empty Kurtas category.
+- Verified all four pink gallery views, photo decoding, enlargement, selected-size retention and the absence of on-image labels.
+- Verified both WhatsApp destinations and the correct pink-set name, colour, size and AI-modelled-view explanation in enquiry text.
+- Verified a combined orange/pink bag and note survive a reload; stale Bela selections are not converted to pink-set selections.
+- Verified no horizontal overflow at 320, 390, 768, 1024 and 1440 pixels.
+- No failed requests or JavaScript exceptions in the checked states. axe-core reported zero tested A/AA violations for the collection, pink product dialog and enlarged modelled view.

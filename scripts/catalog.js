@@ -2,8 +2,9 @@
  * SUTRAS — editable store content
  * Replace the images in assets/images/ and edit these entries as your real
  * collection becomes available. See README.md before changing isPreview.
- * The orange set has an AI-modelled main image and real source photos in its
- * gallery. isPreview describes concept products; imageKind describes imagery. No price or size availability has been supplied.
+ * The orange and pink sets have modelled main images and actual source photos
+ * in their galleries. isPreview describes concept products; imageKind describes
+ * imagery. No price or size availability has been supplied.
  */
 window.SUTRAS = {
   name: 'Sutras by S³',
@@ -52,17 +53,43 @@ window.SUTRAS = {
       isPreview: false
     },
     {
-      id: 'bela',
-      name: 'The Bela Kurta',
-      category: 'Kurtas',
-      color: 'Ivory & sage',
-      colorHex: '#c7c9b8',
-      image: 'assets/images/bela.webp',
-      imageAlt: 'Illustrative style: a woman wearing an ivory kurta with sage botanical motifs.',
-      description: 'Like a quiet morning in the garden. An ivory-and-sage botanical look with an easy straight silhouette, paired here with simple cream trousers.',
-      detail: 'Botanical-inspired pattern · Straight silhouette · Soft neutral tones',
+      id: 'pink-three-piece-set',
+      name: 'Pink Three-Piece Kurta Set',
+      cardName: 'Pink Kurta Set',
+      category: 'Kurta sets',
+      color: 'Fuchsia pink',
+      colorHex: '#d63377',
+      image: 'assets/images/pink-set-model.webp',
+      imageKind: 'ai-model',
+      imageAlt: 'AI-generated styling preview of an adult woman wearing a fuchsia pink kurta with small gold motifs, matching pink bottoms and a tasseled dupatta. Fit and small details are illustrative.',
+      description: 'A vivid pink kurta with fine front pleats, scattered gold motifs and a gold-trimmed neckline and cuffs. Paired with matching pink bottoms and a tasseled dupatta — the scarf that completes this three-piece set.',
+      detail: 'Three pieces shown · Fine front pleats · Gold accents · Tasseled dupatta',
+      photoNote: 'The main image is AI-generated styling. Fit, length, drape and small details are approximate. The original store photograph and its detail crops remain in the gallery for comparison.',
+      gallery: [
+        {
+          src: 'assets/images/pink-three-piece-set.webp',
+          kind: 'store-photo',
+          label: 'Real photo',
+          alt: 'Actual store photograph of the pink kurta, matching bottoms and tasseled dupatta arranged together, with the background removed.',
+          caption: 'Original store photograph — background removed and the view straightened. Parts hidden by folds or outside the original frame have not been invented.'
+        },
+        {
+          src: 'assets/images/pink-set-neckline.webp',
+          kind: 'store-photo',
+          label: 'Neckline detail',
+          alt: 'Close-up crop of the actual pink kurta’s gold-trimmed V neckline, fine pleats and small gold motifs.',
+          caption: 'Neckline and pleat detail — a closer crop of the same photograph, not a separate camera angle.'
+        },
+        {
+          src: 'assets/images/pink-set-dupatta.webp',
+          kind: 'store-photo',
+          label: 'Dupatta detail',
+          alt: 'Close-up crop of the actual pink dupatta showing its fabric folds and pink tassels.',
+          caption: 'Dupatta fabric and tassels — a closer crop of the same photograph, not a separate camera angle.'
+        }
+      ],
       price: null,
-      isPreview: true
+      isPreview: false
     },
     {
       id: 'gulabi',

@@ -10,7 +10,8 @@ An editorial, mobile-friendly storefront for Sutras’ women’s cotton Indian w
 
 - **Orange Three-Piece Kurta Set** now uses the owner-approved **AI model view** as its primary image. The original store photograph and two real-photo detail crops remain in the gallery. Image provenance is described in the gallery captions and product details, not overlaid on the photographs.
 - The main modelled view is an AI-generated styling illustration, not proof of exact fit or drape. Images have no overlaid source badges or bottom text strips; the AI-styling explanation is kept in the product details. The other three gallery views come from **one real store photograph**, not three separate camera angles.
-- The remaining three cards are clearly labelled **Style preview** and are not confirmed stock. The hero and moodboard also remain illustrative.
+- **Pink Three-Piece Kurta Set** is the second owner-photographed product, with a clean modelled main image, the real set photograph and neckline/dupatta detail crops. It replaces the Bela concept card using a new product ID.
+- The remaining two cards, Gulabi and Olive, are identified as **Style preview** below their images and are not confirmed stock. The hero and moodboard also remain illustrative.
 - Price, size availability, exact measurements and stock must still be confirmed on WhatsApp. The folded bottoms have not been assigned an unverified cut such as churidar, palazzo or salwar.
 
 Website: **https://sutras-wear.github.io/Sutras-by-S3/**  
@@ -83,7 +84,7 @@ Instagram blocked automated access. No actual Instagram photographs, posts, stoc
 
 ## Replace the placeholder photos later
 
-The orange three-piece set uses an **owner-approved AI-modelled primary image**, with the actual owner-supplied photograph retained in the gallery. The hero, cotton still life and remaining model images are AI-generated illustrations. The Bela, Gulabi and Olive style names/descriptions are concepts, not confirmed products. Store-photo and illustrative items are distinguished in the collection, details, search, bag, FAQs and WhatsApp messages. See `PHOTO-NOTES.md` for the real image’s provenance.
+The orange and pink three-piece sets use **AI-modelled primary images**, with their actual owner-supplied photographs retained in their galleries. The hero, cotton still life and remaining model images are AI-generated illustrations. The remaining Gulabi and Olive style names/descriptions are concepts, not confirmed products. The retired Bela illustration is still used only in the inspiration moodboard. Store-photo and illustrative items are distinguished in the collection, details, search, bag, FAQs and WhatsApp messages. See `PHOTO-NOTES.md` for the real image’s provenance.
 
 ### Quickest photo replacement
 
@@ -97,7 +98,11 @@ Replace these files with real, permission-cleared images using the **same filena
 | `assets/images/orange-set-neckline.webp` | Same-photo neckline crop | 4:5 portrait |
 | `assets/images/orange-set-print.webp` | Same-photo fabric crop | 4:5 portrait |
 | `assets/images/noor.webp` | Unused original illustration, retained for reference | 3:4 portrait |
-| `assets/images/bela.webp` | Second card and moodboard | 3:4 portrait |
+| `assets/images/pink-set-model.webp` | Pink set, second collection card | 3:4 portrait |
+| `assets/images/pink-three-piece-set.webp` | Actual pink set, gallery reference | Portrait |
+| `assets/images/pink-set-neckline.webp` | Same-photo neckline/pleat crop | 4:5 portrait |
+| `assets/images/pink-set-dupatta.webp` | Same-photo dupatta/tassel crop | 4:5 portrait |
+| `assets/images/bela.webp` | Retired concept; retained for the moodboard | 3:4 portrait |
 | `assets/images/gulabi.webp` | Third card and moodboard | 3:4 portrait |
 | `assets/images/olive.webp` | Fourth card | 3:4 portrait |
 | `assets/images/cotton.webp` | Story and moodboard | 4:5 portrait |
@@ -133,7 +138,7 @@ Open **`scripts/catalog.js`**. Each product has an editable entry:
 - Keep each `id` unique. Change the ID when a concept is replaced by a different real product so old saved enquiries do not refer to a different item.
 - Use one of these category labels: `Kurta sets`, `Kurtas`, `Dresses`, `Co-ord sets`. If adding another category, add its filter button in `index.html` too.
 - Real numeric prices are formatted in **ZMW**. No sample prices are currently displayed. Prices are still to be confirmed on WhatsApp.
-- The `isPreview` flag is per-product. Keep it `true` for every remaining concept; the relevant badges and enquiry disclaimers stay visible.
+- The `isPreview` flag is per-product. Keep it `true` for every remaining concept; the relevant below-image concept labels and enquiry explanations stay visible.
 - Once **all** campaign, moodboard and product photos are real, set `imageryIsIllustrative: false`. Do not switch it off while any illustrative images remain.
 - Update the hero, story and moodboard `alt` text and the Open Graph image description in `index.html` when the imagery changes.
 - Review `#imagery-info`, the FAQ and the collection notes before publishing a mixed real/illustrative catalogue. The script automatically removes the all-preview notice when no preview products remain, but editorial wording should still be reviewed.
@@ -168,7 +173,7 @@ Do not put private customer information, payment secrets or credentials in this 
 
 ## Asset notes
 
-- Orange set photography: supplied by the store owner; background isolation, straightening and close-up crops only. No garment details were generated.
+- Orange and pink set photography: supplied by the store owner; background isolation, straightening and close-up crops only. No garment details were generated.
 - Campaign, model and cotton imagery: original AI-generated temporary illustrations created for this site.
 - Icons: original inline SVG line drawings.
 - Fonts: Cormorant Garamond and DM Sans, self-hosted under the SIL Open Font License. Their license texts are in `assets/fonts/`.
