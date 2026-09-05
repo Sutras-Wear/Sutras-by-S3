@@ -93,3 +93,7 @@ Four unique designs were supplied together. `White_styled.jpeg` appeared twice i
 - **Plum Purple Three-Piece Kurta Set**: distinct brighter purple design with a white paisley/floral neckline and small flower motifs, narrow-trim trousers and a small-flower dupatta. It is not a duplicate of the dark-purple design. Assets use `plum-purple-set`.
 
 Each modelled view is AI-generated and may approximate fit, length, drape, print placement and small details. Real garment images were isolated from the room/bedding with pixel-based masks, straightened and cropped; the detail views are crops of the same supplied photograph, not extra camera angles. No unseen parts were generated in those real-photo views. The unedited room photographs are not published and source EXIF/location metadata is not retained. Images have no text, source badge or footer; explanations stay outside them in the product interface. Prices and size availability were not supplied and remain on enquiry.
+
+## Yellow length correction
+
+The owner confirmed that the yellow item is a **short kurti**, comparable in length to the white collared top, not a long kurta. Its modelled view was corrected to hip/upper-thigh length while keeping the yellow/white design. The active image is `yellow-kurti-short-model.webp`; the previous image URL and downloadable image pack were also updated. The real-photo gallery is unchanged. Only the kurti is included; ivory model trousers remain styling props.

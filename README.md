@@ -17,7 +17,7 @@ The catalogue now contains **eight products**, with the existing four retained a
 | Navy set | Kurta and bottoms — 2 pieces, no scarf |
 | Green set | Kurta and bottoms — 2 pieces, no scarf |
 | White floral set | Collared shirt and floral-hem trousers — 2 pieces, no scarf |
-| Yellow floral kurti | **Top only — 1 piece. Model styling trousers/footwear are not included.** |
+| Yellow short floral kurti | **Top only — 1 piece. Model styling trousers/footwear are not included.** |
 | Dark-purple set | Kurta, decorated-hem bottoms, leafy-border dupatta — 3 pieces |
 | Plum-purple set | Kurta, narrow-trim bottoms, small-flower dupatta — 3 pieces |
 
@@ -134,7 +134,7 @@ Replace these files with real, permission-cleared images using the **same filena
 | `assets/images/olive.webp` | Retired, unused concept image | 3:4 portrait |
 | `assets/images/white-floral-set-model.webp` | White floral co-ord set | 3:4 portrait |
 | `assets/images/white-floral-set-photo.webp`, `assets/images/white-floral-set-collar.webp`, `assets/images/white-floral-set-print.webp` | White-set original photo and crops | Portrait |
-| `assets/images/yellow-kurti-model.webp` | Yellow kurti; styling trousers excluded | 3:4 portrait |
+| `assets/images/yellow-kurti-short-model.webp` | Yellow kurti; styling trousers excluded | 3:4 portrait |
 | `assets/images/yellow-kurti-photo.webp`, `assets/images/yellow-kurti-neckline.webp`, `assets/images/yellow-kurti-cuff.webp` | Actual yellow top and crops | Portrait |
 | `assets/images/dark-purple-set-model.webp` | Dark-purple three-piece set | 3:4 portrait |
 | `assets/images/dark-purple-set-photo.webp`, `assets/images/dark-purple-set-neckline.webp`, `assets/images/dark-purple-set-trim.webp` | Dark-purple original photo and crops | Portrait |

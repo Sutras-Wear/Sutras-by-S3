@@ -116,3 +116,10 @@ This is a limited automated audit, not an accessibility certification. Full manu
 - Verified the 50-distinct-selection safeguard: a new combination is refused at the limit while quantity can still increase on an existing selection. This prevents newer selections from silently disappearing on reload.
 - No horizontal overflow at 320, 390, 768, 1024 and 1440 pixels, no failed requests or JavaScript exceptions, and zero tested axe A/AA violations for the collection, top-only product and three-piece product states.
 - Verified the four new galleries, enlarged images and enquiry bag in the self-contained sandboxed preview with no network or storage access.
+
+## Yellow short-kurti correction — targeted checks
+
+- Compared the corrected modelled view with the white-top length reference; the yellow hem is now hip/upper-thigh rather than calf length.
+- A targeted colour-region check confirms the yellow fabric ends above image y=720 in the 1200-pixel-high model frame and over 180 pixels higher than before.
+- Verified only the yellow product record changed, all eight products remain, its original gallery is unchanged and top-only/styling-trouser exclusions are preserved.
+- Updated the modelled asset, old asset URL, individual download, image-pack ZIP and overview image. No application logic or styling was changed; a full-site retest was not repeated.
