@@ -14,6 +14,8 @@
   const storageKey = 'sutras-enquiry-bag-v1';
   const maxQuantity = 10;
   let activeProduct = null;
+  let activeGallery = [];
+  let selectedPhotoIndex = 0;
   let selectedSize = 'Not sure';
   let activeFilter = 'All';
   let toastTimer;
@@ -132,14 +134,14 @@
       <div class="product-image-wrap">
         <button type="button" class="product-image-link" data-product="${escape(product.id)}" aria-label="View ${escape(product.name)}${product.isPreview ? ', illustrative style preview' : ''}">
           <img src="${escape(product.image)}" alt="${escape(product.imageAlt)}" width="896" height="1200" loading="lazy" decoding="async">
-          ${product.isPreview ? '<span class="preview-tag">STYLE PREVIEW</span>' : ''}
+          ${product.isPreview ? '<span class="preview-tag">STYLE PREVIEW</span>' : '<span class="preview-tag store-photo-tag">STORE PHOTO</span>'}
           <span class="image-view-label">Take a closer look ↗</span>
         </button>
         <button class="quick-add" type="button" data-product="${escape(product.id)}" aria-label="Choose your size preference for ${escape(product.name)}">${icon('plus')}</button>
       </div>
       <div class="product-meta">
         <p class="product-category"><span>${escape(product.category)}</span><span class="color-dot" style="background:${colorValue(product)}" role="img" aria-label="${escape(product.color)}"></span></p>
-        <h3><button type="button" class="product-name" data-product="${escape(product.id)}">${escape(product.name)}</button></h3>
+        <h3><button type="button" class="product-name" data-product="${escape(product.id)}">${escape(product.cardName || product.name)}</button></h3>
         <div class="product-bottom-line"><p class="product-price">${escape(priceText(product))}</p><button class="product-enquire" type="button" data-product="${escape(product.id)}">Explore style ↗</button></div>
       </div>
     </article>`;
@@ -175,7 +177,7 @@
       return tokens.every(token => haystack.includes(token));
     });
     $('#search-result-count').textContent = query ? `${found.length} matching style${found.length === 1 ? '' : 's'}` : `Explore all ${products.length} ${products.every(product => product.isPreview) ? 'style previews' : 'styles'}`;
-    $('#search-results').innerHTML = found.length ? found.map(product => `<button class="search-result" type="button" data-product="${escape(product.id)}"><img src="${escape(product.image)}" alt="${escape(product.imageAlt)}" width="62" height="83"><span><strong>${escape(product.name)}</strong><small>${escape(product.category)} · ${escape(product.color)}</small><small>${product.isPreview ? 'Illustrative style preview' : escape(priceText(product))}</small></span></button>`).join('') : '<div class="search-empty"><h3>No match, just yet.</h3><p>Try a colour or a category, like “blue” or “kurta”. Our actual collection is a WhatsApp message away.</p></div>';
+    $('#search-results').innerHTML = found.length ? found.map(product => `<button class="search-result" type="button" data-product="${escape(product.id)}"><img src="${escape(product.image)}" alt="${escape(product.imageAlt)}" width="62" height="83"><span><strong>${escape(product.cardName || product.name)}</strong><small>${escape(product.category)} · ${escape(product.color)}</small><small>${product.isPreview ? 'Illustrative style preview' : 'Store photograph · ' + escape(priceText(product))}</small></span></button>`).join('') : '<div class="search-empty"><h3>No match, just yet.</h3><p>Try a colour or a category, like “blue” or “kurta”. Our actual collection is a WhatsApp message away.</p></div>';
   }
 
   $('#search-input').addEventListener('input', renderSearch);
@@ -193,20 +195,76 @@
     return `${intro}\nMy usual size: ${size === 'Not sure' ? 'I would appreciate sizing advice' : size}.`;
   }
 
+  function galleryFor(product) {
+    return [{
+      src: product.image,
+      alt: product.imageAlt,
+      label: product.isPreview ? 'Style preview' : 'Full set',
+      caption: product.isPreview ? 'AI-generated style inspiration, not a confirmed stock photograph.' : (product.photoNote || 'Actual store photograph. Please confirm current availability on WhatsApp.')
+    }, ...(Array.isArray(product.gallery) ? product.gallery.filter(photo => photo && photo.src && photo.label) : [])];
+  }
+
+  function productMedia(product) {
+    const photo = activeGallery[0];
+    const stage = `<div class="product-detail-image${product.isPreview ? '' : ' real-product-image'}">
+      <img id="product-main-image" src="${escape(photo.src)}" alt="${escape(photo.alt)}" width="${product.isPreview ? '896' : '1200'}" height="${product.isPreview ? '1200' : '1600'}">
+      ${product.isPreview ? '<span class="preview-tag">ILLUSTRATIVE STYLE PREVIEW</span>' : '<span class="preview-tag store-photo-tag">ACTUAL STORE PHOTO</span>'}
+      ${!product.isPreview ? `<button class="photo-zoom-button" type="button" data-zoom-photo aria-label="Enlarge the selected product photograph">${icon('search')}<span>View larger</span></button>` : ''}
+    </div>`;
+    if (activeGallery.length === 1) return stage;
+    return `<div class="product-detail-media has-gallery">${stage}
+      <div class="photo-gallery" role="group" aria-label="Choose a view of this product">
+        ${activeGallery.map((image, index) => `<button class="photo-thumbnail" type="button" data-photo-index="${index}" aria-pressed="${index === 0}" aria-label="Show ${escape(image.label.toLowerCase())}"><img src="${escape(image.src)}" alt="" width="45" height="60"><span>${escape(image.label)}</span></button>`).join('')}
+      </div>
+      <p class="photo-caption" id="photo-caption" aria-live="polite">${escape(photo.caption)}</p>
+    </div>`;
+  }
+
+  function selectPhoto(index) {
+    if (!Number.isInteger(index) || !activeGallery[index]) return;
+    selectedPhotoIndex = index;
+    const photo = activeGallery[index];
+    const image = $('#product-main-image');
+    image.src = photo.src;
+    image.alt = photo.alt || activeProduct.imageAlt;
+    image.removeAttribute('data-fallback');
+    $$('.photo-thumbnail').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.photoIndex) === index)));
+    const caption = $('#photo-caption');
+    if (caption) caption.textContent = photo.caption || '';
+  }
+
+  function showPhotoViewer() {
+    const photo = activeGallery[selectedPhotoIndex];
+    if (!photo || !activeProduct) return;
+    $('#image-viewer-title').textContent = `${activeProduct.cardName || activeProduct.name} — ${photo.label}`;
+    const image = $('#image-viewer-image');
+    image.src = photo.src;
+    image.alt = photo.alt || activeProduct.imageAlt;
+    image.hidden = false;
+    image.removeAttribute('data-fallback');
+    $('#image-viewer-caption').textContent = photo.caption || '';
+    // Keep the product dialog underneath so closing the photograph returns to
+    // exactly the same style, size preference and selected thumbnail.
+    $('#image-dialog').showModal();
+    syncScrollLock();
+  }
+
   function openProduct(id) {
     const product = byId.get(id);
     if (!product) return;
     activeProduct = product;
+    activeGallery = galleryFor(product);
+    selectedPhotoIndex = 0;
     selectedSize = 'Not sure';
     $('#product-detail').innerHTML = `<div class="product-detail-layout">
-      <div class="product-detail-image"><img src="${escape(product.image)}" alt="${escape(product.imageAlt)}" width="896" height="1200">${product.isPreview ? '<span class="preview-tag">ILLUSTRATIVE STYLE PREVIEW</span>' : ''}</div>
+      ${productMedia(product)}
       <div class="product-detail-copy">
         <p class="detail-eyebrow">THE COTTON EDIT / ${escape(product.category.toUpperCase())}</p>
         <h2 id="product-title">${escape(product.name)}</h2>
         <p class="detail-color"><span class="color-dot" style="background:${colorValue(product)}"></span>${escape(product.color)}</p>
         <p class="detail-description">${escape(product.description)}</p>
         <p class="detail-features">${escape(product.detail)}</p>
-        ${product.isPreview ? '<p class="preview-notice"><strong>A little inspiration, not a stock listing.</strong>This AI-generated image and style name are placeholders. Ask us about similar real pieces, prices and availability.</p>' : ''}
+        ${product.isPreview ? '<p class="preview-notice"><strong>A little inspiration, not a stock listing.</strong>This AI-generated image and style name are placeholders. Ask us about similar real pieces, prices and availability.</p>' : `<p class="preview-notice real-photo-notice"><strong>Photographed by Sutras.</strong>${escape(product.photoNote || 'Actual product photograph. Please confirm the price, sizing and availability with us.')}</p>`}
         <p class="detail-size-label" id="size-label">Your usual size <span>— a preference, not confirmed availability</span></p>
         <div class="size-list" role="group" aria-labelledby="size-label">${sizes.map(size => `<button class="size-option" type="button" data-size="${escape(size)}" aria-pressed="${size === selectedSize}">${escape(size)}</button>`).join('')}</div>
         <p class="size-helper">Not sure? We can help with the actual garment’s fit.</p>
@@ -219,6 +277,9 @@
   }
 
   $('#product-detail').addEventListener('click', event => {
+    const photoButton = event.target.closest('[data-photo-index]');
+    if (photoButton) selectPhoto(Number(photoButton.dataset.photoIndex));
+    if (event.target.closest('[data-zoom-photo]')) showPhotoViewer();
     const sizeButton = event.target.closest('[data-size]');
     if (sizeButton) {
       selectedSize = sizeButton.dataset.size;
@@ -247,12 +308,12 @@
     const hasPreviews = bag.some(item => byId.get(item.id).isPreview);
     const lines = [
       'Hi Sutras by S³! I’d love to enquire about pure cotton Indian wear.',
-      hasPreviews ? 'I saved these illustrative style previews on your website. I understand they are inspiration, not confirmed stock. Please share similar actual pieces, prices and available sizes.' : 'I saved these pieces on your website. Please confirm prices and availability.',
+      hasPreviews ? 'My selection below may include real product photos and illustrative style previews. Only items labelled “style preview” are inspiration, not confirmed stock. Please confirm availability of the photographed pieces and share real alternatives for the previews, with prices and sizes.' : 'I saved these pieces on your website. Please confirm prices and availability.',
       '',
       ...bag.map((item, index) => {
         const product = byId.get(item.id);
         const size = item.size === 'Not sure' ? 'sizing advice please' : item.size;
-        return `${index + 1}. ${product.name}${product.isPreview ? ' (style preview)' : ''} — ${product.color}\n   Usual size: ${size} | Requested quantity: ${item.quantity}`;
+        return `${index + 1}. ${product.name}${product.isPreview ? ' (style preview)' : ' (store photograph)'} — ${product.color}\n   Usual size: ${size} | Requested quantity: ${item.quantity}`;
       }),
       '',
       ...(orderNote.trim() ? [`My note: ${orderNote.trim()}`, ''] : []),
@@ -274,7 +335,7 @@
     $('#bag-footer').hidden = !bag.length;
     $('#order-note').value = orderNote;
     if (!bag.length) {
-      $('#bag-items').innerHTML = `<div class="empty-bag">${icon('bag')}<h3>A little room for lovely things.</h3><p>Explore the style previews and add the ones you love. We’ll help you discover the real collection.</p><button class="button button-rust" type="button" data-browse-styles>Explore the collection ${icon('arrow')}</button></div>`;
+      $('#bag-items').innerHTML = `<div class="empty-bag">${icon('bag')}<h3>A little room for lovely things.</h3><p>Explore the collection and add the pieces or inspiration you love. We’ll confirm actual availability with you.</p><button class="button button-rust" type="button" data-browse-styles>Explore the collection ${icon('arrow')}</button></div>`;
       return;
     }
     $('#bag-items').innerHTML = bag.map((item, index) => {
@@ -282,8 +343,8 @@
       return `<article class="bag-item">
         <img src="${escape(product.image)}" alt="${escape(product.imageAlt)}" width="79" height="106">
         <div class="bag-item-content">
-          <div class="bag-item-heading"><h3>${escape(product.name)}</h3><button class="bag-remove" type="button" data-remove="${index}" aria-label="Remove ${escape(product.name)}, size ${escape(item.size)}, from your bag">Remove</button></div>
-          <p>${escape(product.color)} · ${item.size === 'Not sure' ? 'Size: advice please' : `Usual size: ${escape(item.size)}`}<br>${product.isPreview ? 'Illustrative style preview' : escape(product.category)}</p>
+          <div class="bag-item-heading"><h3>${escape(product.cardName || product.name)}</h3><button class="bag-remove" type="button" data-remove="${index}" aria-label="Remove ${escape(product.name)}, size ${escape(item.size)}, from your bag">Remove</button></div>
+          <p>${escape(product.color)} · ${item.size === 'Not sure' ? 'Size: advice please' : `Usual size: ${escape(item.size)}`}<br>${product.isPreview ? 'Illustrative style preview' : 'Store photograph · ' + escape(product.category)}</p>
           <div class="bag-item-bottom"><div class="quantity-controls" role="group" aria-label="Requested quantity for ${escape(product.name)}, size ${escape(item.size)}"><button type="button" data-quantity="${index}" data-change="-1" aria-label="Decrease quantity for ${escape(product.name)}" ${item.quantity <= 1 ? 'disabled' : ''}>${icon('minus')}</button><span class="quantity-value">${item.quantity}</span><button type="button" data-quantity="${index}" data-change="1" aria-label="Increase quantity for ${escape(product.name)}" ${item.quantity >= maxQuantity ? 'disabled' : ''}>${icon('plus')}</button></div><span>${escape(priceText(product))}</span></div>
         </div>
       </article>`;
@@ -363,8 +424,13 @@
   }, true);
 
   const hasPreviewProducts = products.some(product => product.isPreview);
+  const hasRealProducts = products.some(product => !product.isPreview);
   $$('[data-collection-preview-note]').forEach(note => note.hidden = !hasPreviewProducts);
   $$('[data-imagery-note]').forEach(note => note.hidden = !config.imageryIsIllustrative);
+  if (hasPreviewProducts && hasRealProducts) {
+    $('#stock-faq-answer').textContent = 'Items labelled “Store photo” use photographs supplied by Sutras. Items labelled “Style preview” are AI-generated inspiration, not confirmed stock. We are adding more real photographs over time. Please confirm each actual piece, price and size on WhatsApp before ordering.';
+    $('#imagery-info').textContent = 'Cards labelled “Store photo” use actual photographs supplied by Sutras. Any background cleanup and detail crops are described in the product details; those crops are not additional camera angles. Cards labelled “Style preview”, the campaign and the moodboard use clearly labelled AI-generated illustrations. Please confirm prices, measurements and availability with Sutras.';
+  }
   if (!hasPreviewProducts) {
     $('#stock-faq-answer').textContent = 'Please message us to confirm current availability, prices and sizing for the actual pieces before ordering. Product availability is confirmed personally on WhatsApp, not by this website.';
   }

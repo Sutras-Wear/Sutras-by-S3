@@ -6,7 +6,17 @@ Lusaka, Zambia
 
 An editorial, mobile-friendly storefront for Sutras’ women’s cotton Indian wear. Designed in warm ivory, terracotta and olive with original illustrative imagery. This is a complete, no-build static website suitable for GitHub Pages.
 
-## Publish it on GitHub Pages — easiest method
+## Current collection
+
+- **Orange Three-Piece Kurta Set** is the first real, owner-photographed product. It is labelled **Store photo** and has full-set, neckline and fabric views, plus an enlarged-photo viewer.
+- Its three views come from **one photograph**, not three camera angles. The background was removed and the outfit straightened using pixel-based editing, not generative imagery.
+- The remaining three cards are clearly labelled **Style preview** and are not confirmed stock. The hero and moodboard also remain illustrative.
+- Price, size availability, exact measurements and stock must still be confirmed on WhatsApp. The folded bottoms have not been assigned an unverified cut such as churidar, palazzo or salwar.
+
+Website: **https://sutras-wear.github.io/Sutras-by-S3/**  
+Repository: **https://github.com/Sutras-Wear/Sutras-by-S3**
+
+## Initial GitHub Pages setup (if needed)
 
 Your repository: **https://github.com/Sutras-Wear/Sutras-by-S3**
 
@@ -21,7 +31,7 @@ Your repository: **https://github.com/Sutras-Wear/Sutras-by-S3**
 
    **https://sutras-wear.github.io/Sutras-by-S3/**
 
-The intended address above is **not a claim that the site is already published**. Repository upload and Pages activation require the owner’s authenticated GitHub access. This delivery does not change the remote repository or its settings.
+The repository has been populated and GitHub Pages is serving the site. The steps above are retained for setup/reference. Updates pushed to the configured publishing branch are deployed by GitHub Pages. No access token belongs in website files or Git history.
 
 No Node.js, npm, backend, API keys or paid host is required. All fonts, illustrations, styles and JavaScript are local files. All paths are relative so the GitHub project subdirectory works correctly.
 
@@ -43,7 +53,8 @@ Then enable Pages using steps 6–8 above. Do not paste passwords or personal ac
 - Responsive desktop, tablet and mobile layouts
 - Category filters for kurta sets, kurtas, dresses and co-ord sets
 - Search by style, category, colour and description
-- Product detail dialogs with clearly labelled **usual-size preferences**, not claimed stock sizes
+- Product detail dialogs, accessible photo thumbnails and an enlarged-photo viewer
+- Clearly labelled **usual-size preferences**, not claimed stock sizes
 - Enquiry bag: add styles, change requested quantities, remove items, clear the bag, add a note
 - Browser-local bag persistence (with in-memory fallback when storage is blocked)
 - WhatsApp enquiry links for **both** store numbers, including the selected styles, preferred sizes, requested quantities and note
@@ -72,7 +83,7 @@ Instagram blocked automated access. No actual Instagram photographs, posts, stoc
 
 ## Replace the placeholder photos later
 
-The hero, cotton still life and all four model images are **AI-generated illustrations**, not Sutras’ actual garments, employees or customers. The names, colours, descriptions and categories of the four demo styles are concepts. The website explicitly discloses this in the collection, product dialogs, image captions, FAQ, WhatsApp messages and site notes.
+The orange three-piece set uses an **actual owner-supplied photograph**. The hero, cotton still life and remaining model images are AI-generated illustrations. The Bela, Gulabi and Olive style names/descriptions are concepts, not confirmed products. Store-photo and illustrative items are distinguished in the collection, details, search, bag, FAQs and WhatsApp messages. See `PHOTO-NOTES.md` for the real image’s provenance.
 
 ### Quickest photo replacement
 
@@ -81,7 +92,10 @@ Replace these files with real, permission-cleared images using the **same filena
 | File | Used for | Recommended crop |
 | --- | --- | --- |
 | `assets/images/hero.webp` | Main campaign | Portrait, with a little space around the model |
-| `assets/images/noor.webp` | First collection card | 3:4 portrait |
+| `assets/images/orange-three-piece-set.webp` | Actual orange set, first card | 3:4 portrait |
+| `assets/images/orange-set-neckline.webp` | Same-photo neckline crop | 4:5 portrait |
+| `assets/images/orange-set-print.webp` | Same-photo fabric crop | 4:5 portrait |
+| `assets/images/noor.webp` | Unused original illustration, retained for reference | 3:4 portrait |
 | `assets/images/bela.webp` | Second card and moodboard | 3:4 portrait |
 | `assets/images/gulabi.webp` | Third card and moodboard | 3:4 portrait |
 | `assets/images/olive.webp` | Fourth card | 3:4 portrait |
@@ -110,6 +124,9 @@ Open **`scripts/catalog.js`**. Each product has an editable entry:
 }
 ```
 
+- Optional `cardName` provides a shorter name for cards/search/bag while enquiries use the full product `name`.
+- Optional `photoNote` explains any actual photo editing; it is shown in the product details.
+- Optional `gallery` contains **additional** views: `{ src, label, alt, caption }`. The primary `image` is automatically the first view. Label crops of one photo honestly rather than describing them as additional angles. Remove or update the additional views when replacing the primary product photo.
 - Keep each `id` unique. Change the ID when a concept is replaced by a different real product so old saved enquiries do not refer to a different item.
 - Use one of these category labels: `Kurta sets`, `Kurtas`, `Dresses`, `Co-ord sets`. If adding another category, add its filter button in `index.html` too.
 - Real numeric prices are formatted in **ZMW**. No sample prices are currently displayed. Prices are still to be confirmed on WhatsApp.
@@ -148,6 +165,7 @@ Do not put private customer information, payment secrets or credentials in this 
 
 ## Asset notes
 
+- Orange set photography: supplied by the store owner; background isolation, straightening and close-up crops only. No garment details were generated.
 - Campaign, model and cotton imagery: original AI-generated temporary illustrations created for this site.
 - Icons: original inline SVG line drawings.
 - Fonts: Cormorant Garamond and DM Sans, self-hosted under the SIL Open Font License. Their license texts are in `assets/fonts/`.

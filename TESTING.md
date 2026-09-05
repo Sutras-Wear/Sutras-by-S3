@@ -47,5 +47,17 @@ This is a limited automated audit, not an accessibility certification. Full manu
 - Responsive layout checked at widths of 320, 360, 390, 600, 768, 1024, 1440 and 1920 pixels.
 - Browser engine tested: Chromium. Safari and Firefox were not separately tested.
 - WhatsApp destinations and encoded messages were verified. **No WhatsApp messages were sent**, and no external orders, payments or reservations were made.
-- The GitHub project-path behavior was simulated locally. **No remote GitHub upload or Pages deployment was performed**; this needs the owner’s authenticated account.
+- The initial browser checks simulated the GitHub project path locally. The initial site was subsequently uploaded and verified through public GitHub access; GitHub Pages is now serving the site.
 - Actual product photography, stock, sizes, prices, delivery fees, payment options and returns terms still need owner-confirmed content.
+
+## Real-photo update — 5 September 2026
+
+- Replaced the Noor concept listing with the owner-photographed Orange Three-Piece Kurta Set, using a new product ID to avoid re-labelling old saved enquiries.
+- Verified one **Store photo** card and three **Style preview** cards, including filtered and search results.
+- Verified the full-set image and two explicitly labelled same-photo crops, thumbnail selection and the enlarged-photo viewer.
+- Closing the enlarged image returns to the underlying product dialog without losing the selected photo or size preference.
+- Verified actual-only and mixed actual/illustrative WhatsApp messages, quantity/note persistence and the enquiry bag.
+- No overflow at 320, 390, 768, 1024 and 1440 pixels.
+- No failed local image requests or JavaScript exceptions in the checked states.
+- axe-core reported no A/AA violations for the mixed collection, real-photo detail dialog and enlarged image viewer in the checked Chromium states.
+- The original photo with incidental people/background was not added to the public website; only the cleaned exports were used. Image metadata was not carried into the exports.
