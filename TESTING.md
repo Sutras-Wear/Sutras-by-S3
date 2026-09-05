@@ -70,3 +70,9 @@ This is a limited automated audit, not an accessibility certification. Full manu
 - Verified AI-modelled-image disclosures in both direct and bag WhatsApp enquiries without changing the real product identity or claiming availability.
 - Verified responsive layouts at 320, 390, 768 and 1440 pixels, no JavaScript exceptions, and no automated axe-core A/AA violations in the tested collection and product-dialog states.
 - Retained the visible AI-preview footer in the approved image; the primary card and detail view use contain rather than cropping the image.
+
+## Clean on-image presentation — 5 September 2026
+
+- Removed source badges from product images and galleries, and removed the campaign/still-life image-disclosure overlays.
+- Exported the exact approved model artwork without the added text strip; garment/model content was not regenerated.
+- Kept image-origin explanations in product details and gallery captions, with concept status below the relevant product images.

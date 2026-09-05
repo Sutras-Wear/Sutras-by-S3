@@ -34,6 +34,10 @@ Close-ups are labelled as crops, not extra camera angles. Exports do not carry t
 
 ## Approved AI-modelled primary image
 
-The owner confirmed that the **plain orange piece is the dupatta** and the **multicoloured printed fabric is the bottoms**, then approved an AI-generated adult model wearing an interpretation of the set. At the owner’s request, this is now the main image (`assets/images/orange-set-model.webp`).
+The owner confirmed that the **plain orange piece is the dupatta** and the **multicoloured printed fabric is the bottoms**, then approved an AI-generated adult model wearing an interpretation of the set. At the owner’s request, this is now the main image (`assets/images/orange-set-model-clean.webp`).
 
-The image retains its visible AI-preview footer and is labelled **AI model view** in the store. It is not a photograph of someone wearing the actual garment; cut, fit, length, drape and small decorative details are approximate. The original cleaned photograph remains as the second gallery image, followed by its two detail crops. Image badges and captions change with the selected view. No actual product photo was deleted.
+At the owner’s request, the displayed image has no footer or on-image labels. Its AI-generated origin is explained separately in the product details and gallery captions. It is not a photograph of someone wearing the actual garment; cut, fit, length, drape and small decorative details are approximate. The original cleaned photograph remains as the second gallery image, followed by its two detail crops. Gallery captions change with the selected view; source labels are not overlaid on the photographs. No actual product photo was deleted.
+
+## Clean image presentation
+
+The clean model asset comes from the exact approved generated artwork before the presentation footer was added. The clothing, model and pose were not regenerated. The former `orange-set-model.webp` URL also serves the same clean artwork for compatibility; the current catalogue uses the new clean filename to avoid an old cached footer. Product-card, gallery, campaign and still-life source labels are no longer placed over images. Concept-only items remain identified as “Style preview” below their pictures.

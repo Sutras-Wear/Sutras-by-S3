@@ -19,7 +19,7 @@ window.SUTRAS = {
       category: 'Kurta sets',
       color: 'Orange & multicolour',
       colorHex: '#e86a29',
-      image: 'assets/images/orange-set-model.webp',
+      image: 'assets/images/orange-set-model-clean.webp',
       imageKind: 'ai-model',
       imageAlt: 'AI-generated styling preview of an adult woman wearing the orange kurta with printed bottoms and a plain orange dupatta. Fit and small details are illustrative.',
       description: 'An orange kurta with a decorative neckline and leaf motifs, paired with multicoloured printed bottoms and a matching plain orange dupatta. Three pieces: the kurta (top), bottoms and dupatta (scarf).',

@@ -60,6 +60,6 @@ If it initially shows a 404, check that the deployment has completed and that `i
 
 Send the photos, product names, colours and confirmed prices. The images live in `assets/images/` and the collection details in `scripts/catalog.js`. The included **README.md** explains exactly how to replace them.
 
-The orange set has a clearly labelled AI-modelled main image, with the real store photo retained in its gallery. The remaining concept styles are labelled as illustrative previews. Orders and enquiries go through your two WhatsApp numbers; the website does not collect payments or automatically confirm orders.
+The orange set uses a modelled main image, with the real store photo retained in its gallery. The AI-styling explanation appears separately in the product details, not on top of the photos. The remaining concept styles are labelled as illustrative previews. Orders and enquiries go through your two WhatsApp numbers; the website does not collect payments or automatically confirm orders.
 
 **Sutras-preview.html** is a separate, self-contained design preview. Use the structured ZIP files for your GitHub website. Some in-app viewers block external links; use the live preview or open the downloaded HTML in a regular browser to follow WhatsApp and Instagram links.

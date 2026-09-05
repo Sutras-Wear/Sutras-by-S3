@@ -138,30 +138,17 @@
     return kind === 'ai-model' ? 'AI modelled view' : kind === 'store-photo' ? 'Store photograph' : 'Illustrative style preview';
   }
 
-  function badgeClass(kind) {
-    return `preview-tag${kind === 'ai-model' ? ' ai-model-tag' : kind === 'store-photo' ? ' store-photo-tag' : ''}`;
-  }
-
-  function badgeText(kind, detail = false) {
-    return kind === 'ai-model' ? 'AI MODEL VIEW' : kind === 'store-photo' ? (detail ? 'ACTUAL STORE PHOTO' : 'STORE PHOTO') : (detail ? 'ILLUSTRATIVE STYLE PREVIEW' : 'STYLE PREVIEW');
-  }
-
-  function imageBadge(kind, detail = false, id = '') {
-    return `<span${id ? ` id="${id}"` : ''} class="${badgeClass(kind)}">${badgeText(kind, detail)}</span>`;
-  }
-
   function productCard(product, index) {
     return `<article class="product-card" style="animation-delay:${index * 40}ms">
       <div class="product-image-wrap${primaryImageKind(product) === 'ai-model' ? ' model-image-wrap' : ''}">
         <button type="button" class="product-image-link" data-product="${escape(product.id)}" aria-label="View ${escape(product.name)}${product.isPreview ? ', illustrative style preview' : primaryImageKind(product) === 'ai-model' ? ', AI-modelled view' : ''}">
           <img src="${escape(product.image)}" alt="${escape(product.imageAlt)}" width="896" height="1200" loading="lazy" decoding="async">
-          ${imageBadge(primaryImageKind(product))}
           <span class="image-view-label">Take a closer look ↗</span>
         </button>
         <button class="quick-add" type="button" data-product="${escape(product.id)}" aria-label="Choose your size preference for ${escape(product.name)}">${icon('plus')}</button>
       </div>
       <div class="product-meta">
-        <p class="product-category"><span>${escape(product.category)}</span><span class="color-dot" style="background:${colorValue(product)}" role="img" aria-label="${escape(product.color)}"></span></p>
+        <p class="product-category"><span>${escape(product.isPreview ? 'Style preview' : product.category)}</span><span class="color-dot" style="background:${colorValue(product)}" role="img" aria-label="${escape(product.color)}"></span></p>
         <h3><button type="button" class="product-name" data-product="${escape(product.id)}">${escape(product.cardName || product.name)}</button></h3>
         <div class="product-bottom-line"><p class="product-price">${escape(priceText(product))}</p><button class="product-enquire" type="button" data-product="${escape(product.id)}">Explore style ↗</button></div>
       </div>
@@ -222,7 +209,7 @@
       src: product.image,
       alt: product.imageAlt,
       kind: primaryImageKind(product),
-      label: primaryImageKind(product) === 'ai-model' ? 'AI model' : product.isPreview ? 'Style preview' : 'Full set',
+      label: primaryImageKind(product) === 'ai-model' ? 'Model view' : product.isPreview ? 'Style preview' : 'Full set',
       caption: product.isPreview ? 'AI-generated style inspiration, not a confirmed stock photograph.' : (product.photoNote || 'Actual store photograph. Please confirm current availability on WhatsApp.')
     }, ...(Array.isArray(product.gallery) ? product.gallery.filter(photo => photo && photo.src && photo.label).map(photo => ({ ...photo, kind: photo.kind || (product.isPreview ? 'style-preview' : 'store-photo') })) : [])];
   }
@@ -231,7 +218,6 @@
     const photo = activeGallery[0];
     const stage = `<div class="product-detail-image${photo.kind === 'ai-model' ? ' modelled-product-image' : photo.kind === 'store-photo' ? ' real-product-image' : ''}">
       <img id="product-main-image" src="${escape(photo.src)}" alt="${escape(photo.alt)}" width="${product.isPreview ? '896' : '1200'}" height="${product.isPreview ? '1200' : '1600'}">
-      ${imageBadge(photo.kind, true, 'product-photo-badge')}
       ${!product.isPreview ? `<button class="photo-zoom-button" type="button" data-zoom-photo aria-label="Enlarge the selected product image">${icon('search')}<span>View larger</span></button>` : ''}
     </div>`;
     if (activeGallery.length === 1) return stage;
@@ -254,9 +240,6 @@
     const stage = image.parentElement;
     stage.classList.toggle('modelled-product-image', photo.kind === 'ai-model');
     stage.classList.toggle('real-product-image', photo.kind === 'store-photo');
-    const badge = $('#product-photo-badge');
-    badge.className = badgeClass(photo.kind);
-    badge.textContent = badgeText(photo.kind, true);
     $$('.photo-thumbnail').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.photoIndex) === index)));
     const caption = $('#photo-caption');
     if (caption) caption.textContent = photo.caption || '';
@@ -460,7 +443,7 @@
   $$('[data-imagery-note]').forEach(note => note.hidden = !config.imageryIsIllustrative);
   if (hasPreviewProducts && hasRealProducts) {
     $('#stock-faq-answer').textContent = 'AI model views are generated styling illustrations of store products, with approximate fit and drape; the original store photographs are available in the product gallery. Cards labelled “Style preview” are concept examples, not confirmed stock. Confirm actual pieces, prices, measurements and availability on WhatsApp.';
-    $('#imagery-info').textContent = 'AI model views are generated illustrations, not photographs of a model wearing the actual garment. Fit, length, drape and small details are approximate. Images labelled “Actual store photo” are the original product photographs or disclosed crops. The campaign, moodboard and other style-preview cards also use AI-generated imagery. Please confirm the real garment details before ordering.';
+    $('#imagery-info').textContent = 'AI model views are generated illustrations, not photographs of a model wearing the actual garment. Fit, length, drape and small details are approximate. Original store photographs and close-up crops are identified in the gallery captions, separately from the images. The campaign, moodboard and other style-preview cards also use AI-generated imagery. Please confirm the real garment details before ordering.';
   }
   if (!hasPreviewProducts) {
     $('#stock-faq-answer').textContent = 'Please message us to confirm current availability, prices and sizing for the actual pieces before ordering. Product availability is confirmed personally on WhatsApp, not by this website.';
