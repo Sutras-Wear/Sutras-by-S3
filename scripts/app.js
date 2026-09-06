@@ -448,7 +448,7 @@
         const product = byId.get(item.id);
         const size = item.size === 'Not sure' ? 'sizing advice please' : item.size;
         const contentsNote = product.setContents ? `\n   Set: ${product.setContents}` : '';
-        return `${index + 1}. ${product.name}${product.isPreview ? ' (style preview)' : primaryImageKind(product) === 'ai-model' ? ' (AI-modelled view; real photo in gallery)' : ' (store photograph)'} — ${product.color}${contentsNote}\n   Usual size: ${size} | Requested quantity: ${item.quantity}`;
+        return `${index + 1}. ${product.name}${product.isPreview ? ' (style preview)' : primaryImageKind(product) === 'ai-model' ? ' (AI-modelled view)' : ' (store photograph)'} — ${product.color}${contentsNote}\n   Usual size: ${size} | Requested quantity: ${item.quantity}`;
       }),
       '',
       ...(orderNote.trim() ? [`My note: ${orderNote.trim()}`, ''] : []),
@@ -564,14 +564,14 @@
   $$('[data-imagery-note]').forEach(note => note.hidden = !config.imageryIsIllustrative);
   const collectionNote = $('#collection-image-note');
   if (collectionNote) collectionNote.textContent = hasPreviewProducts
-    ? 'AI model views illustrate styling; original store photos are in the gallery. Style-preview cards are concepts, not confirmed stock.'
-    : 'AI model views illustrate styling. Every product has its original store photograph in the gallery.';
+    ? 'AI model views illustrate styling. Style-preview cards are concepts, not confirmed stock.'
+    : 'AI model views illustrate styling. Please confirm actual garment details and sizes with us.';
   $('#stock-faq-answer').textContent = hasPreviewProducts
-    ? 'AI model views illustrate styling, with original store photographs available in the product galleries. Items identified as “Style preview” are concepts, not confirmed stock. Please confirm actual pieces, prices and measurements on WhatsApp.'
-    : `${hasModelledProducts ? 'The collection is based on photographs supplied by Sutras. Main modelled views illustrate styling, not exact fit; the original store photographs are in each product gallery. ' : ''}Please confirm current availability, prices and garment measurements on WhatsApp before ordering.`;
+    ? 'AI model views illustrate styling, not exact garment fit. Items identified as “Style preview” are concepts, not confirmed stock. Please confirm actual pieces, prices and measurements on WhatsApp.'
+    : `${hasModelledProducts ? 'The collection is based on photographs supplied by Sutras. Product pages currently show the modelled view only, which illustrates styling rather than exact fit. ' : ''}Please confirm current availability, prices and garment measurements on WhatsApp before ordering.`;
   const imageryNotes = [];
   if (hasModelledProducts) imageryNotes.push('AI model views are generated illustrations, not photographs of a model wearing the actual garment. Fit, length, drape and small details are approximate.');
-  imageryNotes.push('Original store photographs and close-up crops are identified in the gallery captions, separately from the images.');
+  imageryNotes.push('Additional product photographs have been taken out of the galleries while better replacements are prepared.');
   if (hasPreviewProducts) imageryNotes.push('Items identified as “Style preview” are concept examples, not confirmed stock.');
   if (config.imageryIsIllustrative) imageryNotes.push('The campaign and moodboard also use illustrative imagery.');
   imageryNotes.push('Please confirm the real garment details before ordering.');

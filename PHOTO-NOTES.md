@@ -109,3 +109,7 @@ Three separate photographs were supplied for one outfit: long button-front flora
 ## Dark-green reference background cleanup
 
 The owner requested removal of the bed/room background from the dark-green floral set’s three reference photographs. Those views were isolated using pixel-based masks and placed on a neutral background. Original uploads were retained. The AI-modelled primary image was not regenerated, edited or re-encoded; its SHA-256 remained unchanged. Gallery URLs now use the cutout versions, and the previous reference-image URLs also serve the cleaned images.
+
+## Modelled views only — replacement photographs pending
+
+The owner requested removal of all additional clothing images from the product galleries. All twelve gallery arrays were cleared, leaving each existing AI-modelled main image unchanged. The original uploads were retained and the previous gallery configuration archived privately. Product and enquiry text no longer claims that reference photos are visible. Photos can be restored or replaced when the owner supplies better versions.

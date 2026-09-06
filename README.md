@@ -1,3 +1,7 @@
+# Current photo display
+
+At the owner’s request, all 12 product pages currently show **only the existing AI-modelled main image**. Extra garment photographs and detail crops are no longer shown. The main images, product IDs, garment contents, prices and sizing preferences were not changed. Additional photographs can be added when the owner supplies replacements. Previous gallery configuration is archived in the private workspace; original uploads are retained.
+
 # Sutras by S³
 
 **Pure Cotton Indian Wear**  

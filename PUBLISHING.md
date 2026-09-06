@@ -1,3 +1,5 @@
+Current photo display: product galleries show only the existing AI-modelled image. Additional product photos are temporarily removed pending replacements. Original uploads are retained in the workspace.
+
 # Publish your Sutras website
 
 Your website files have been uploaded and GitHub Pages is serving the site. The instructions below are a reference if you need to configure or recreate the deployment. Future changes to the configured publishing branch are deployed by GitHub Pages.
