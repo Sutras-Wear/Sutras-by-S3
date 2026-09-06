@@ -20,7 +20,7 @@ html = html.replace('<link rel="stylesheet" href="styles.css">', '<style>\n' + c
 # classic script. Move the two scripts to the end of the document in order.
 script_contents = []
 for file in ('scripts/catalog.js', 'scripts/app.js'):
-    html = html.replace(f'<script src="{file}" defer></script>', '')
+    html = re.sub(r'<script src="' + re.escape(file) + r'(?:\?[^"]*)?" defer></script>', '', html)
     source = (root / file).read_text(encoding='utf-8').replace('</script>', '<\\/script>')
     script_contents.append('<script>\n' + source + '\n</script>')
 html = html.replace('</body>', '\n'.join(script_contents) + '\n</body>')

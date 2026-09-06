@@ -229,3 +229,7 @@ Example: `https://sutras-wear.github.io/Sutras-by-S3/?product=dark-green-floral-
 - If automatic clipboard access is denied, a selectable read-only link appears for manual copying.
 - The public base URL comes from the page’s HTTPS canonical URL, never a local preview address.
 - Social networks may use the site’s existing general link-preview image; these are client-side product links, not separate server-rendered social-preview pages.
+
+## Homepage starting position
+
+Fresh visits and reloads start at the hero/top of the page, including older bookmarked section-fragment links. Normal menu/section clicks still scroll after arrival. Browser scroll restoration is managed explicitly, and a late image load does not reset the page after the visitor has interacted. Product-sharing URLs continue to open the selected product over the top of the homepage; closing that initial view returns to the top rather than jumping to an off-screen product card. The app script uses a versioned URL so the correction is not hidden by an old mobile cache.

@@ -292,8 +292,9 @@
       return;
     }
     if (initial) {
-      $('#collection').scrollIntoView({ block: 'start', behavior: 'instant' });
-      $$('[data-product]').find(button => button.dataset.product === id)?.focus({ preventScroll: true });
+      // A shared product opens over the top of the homepage. Returning focus
+      // to a card below the fold would otherwise scroll the page on close.
+      $('.site-header .wordmark')?.focus({ preventScroll: true });
     }
     openProduct(id, { fromAddress: true });
   }
@@ -302,7 +303,18 @@
     // A queued close event must not clear the route of a product already reopened.
     if (!$('#product-dialog').open && productQuery() === activeProduct?.id) updateProductAddress(null);
   });
-  window.addEventListener('popstate', () => openProductFromAddress());
+  window.addEventListener('popstate', () => {
+    openProductFromAddress();
+    if (!productQuery()) {
+      const section = document.getElementById(window.location.hash.slice(1));
+      const root = document.documentElement;
+      const previous = root.style.scrollBehavior;
+      root.style.scrollBehavior = 'auto';
+      if (section) section.scrollIntoView({ block: 'start', behavior: 'instant' });
+      else if (!window.location.hash) window.scrollTo(0, 0);
+      root.style.scrollBehavior = previous;
+    }
+  });
 
   function galleryFor(product) {
     return [{

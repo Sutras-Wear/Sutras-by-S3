@@ -132,3 +132,12 @@ This is a limited automated audit, not an accessibility certification. Full manu
 - Verified WhatsApp sharing contains the correct product title/link and uses the recipient picker, while both existing store-enquiry destinations remain unchanged. No WhatsApp messages were sent by these tests.
 - Verified gallery enlargement/closing, product size preference, enquiry bag, keyboard containment and mobile direct-link opening.
 - No horizontal overflow at 320, 390, 768 and 1440 pixels. The tested product dialog with the manual-copy field had zero axe-core A/AA violations.
+
+## Mobile startup scrolling — 6 September 2026
+
+- In mobile Chromium emulation, verified scroll position zero on fresh home visits, reload after scrolling, and arrivals using old collection/story/contact fragments.
+- Verified browser page-cache return handling and normal Back navigation to the homepage.
+- Verified deliberate collection-menu clicks still scroll, both with reduced motion and normal motion.
+- Delayed the hero image response, clicked a section link before loading finished, then released the image; the late load did not pull the visitor back to the top.
+- Verified shared product URLs still open the correct product while the underlying homepage remains at the top, including after closing the dialog.
+- No JavaScript exceptions in these checks. These are browser-emulation checks, not a physical-device Safari certification.
