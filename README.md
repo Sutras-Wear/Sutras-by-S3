@@ -216,3 +216,16 @@ Do not put private customer information, payment secrets or credentials in this 
 - Icons: original inline SVG line drawings.
 - Fonts: Cormorant Garamond and DM Sans, self-hosted under the SIL Open Font License. Their license texts are in `assets/fonts/`.
 - No third-party scripts or CDNs are required.
+
+## Share a specific product
+
+Open a product’s details and use **Copy link** or **Share on WhatsApp** below the enquiry button. WhatsApp sharing opens its recipient picker; it does not send a message automatically or replace the business enquiry buttons.
+
+Example: `https://sutras-wear.github.io/Sutras-by-S3/?product=dark-green-floral-two-piece-set`
+
+- The product ID is stable: shared links continue to show later photo/detail updates to that same product. Do not reuse a retired ID for a different item.
+- A valid link opens that exact product on arrival or reload. Unknown/retired IDs fall back to the collection with a helpful message.
+- Share links include only the public product ID—not the visitor’s size preference, enquiry bag or note.
+- If automatic clipboard access is denied, a selectable read-only link appears for manual copying.
+- The public base URL comes from the page’s HTTPS canonical URL, never a local preview address.
+- Social networks may use the site’s existing general link-preview image; these are client-side product links, not separate server-rendered social-preview pages.

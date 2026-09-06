@@ -58,3 +58,14 @@ dialog{border:0;background:var(--paper);color:var(--ink);padding:35px;width:min(
 .model-image-wrap .product-image-link img,.modelled-product-image>img{object-fit:contain;object-position:center}
 .ai-model-notice{background:#f0e7dd}.ai-model-notice>strong{color:var(--rust)}
 .photo-gallery{grid-template-columns:repeat(var(--gallery-columns,3),minmax(0,1fr))}
+
+/* Product sharing stays separate from the WhatsApp enquiry action. */
+.product-share{border-top:1px solid var(--line);margin-top:22px;padding-top:15px}
+.share-heading{font-size:9px;letter-spacing:1.1px;text-transform:uppercase;color:var(--muted);margin:0 0 5px}
+.product-share-actions{display:flex;align-items:center;flex-wrap:wrap;gap:5px 22px}
+.share-action{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:42px;padding:3px 1px;color:var(--olive);font:500 10px/1.5 var(--sans);text-decoration:none}
+.share-action:hover{color:var(--rust)}.share-action .icon{width:17px;height:17px}
+.product-share-fallback{margin-top:8px}.product-share-fallback label{display:block;font-size:10px;line-height:1.6;margin-bottom:6px}
+.product-share-fallback input{display:block;width:100%;min-width:0;box-sizing:border-box;border:1px solid #b8c0ab;border-radius:0;background:var(--paper);color:var(--ink);font:400 11px/1.6 var(--sans);padding:10px}
+.product-share-fallback p{font-size:9px;line-height:1.7;color:var(--muted);margin:7px 0 0}
+@media(max-width:699px){.product-share{margin-top:20px;padding-top:14px}.product-share-actions{gap:4px 18px}.share-action{font-size:11px;min-height:44px}.share-heading{font-size:9px}.product-share-fallback input{font-size:12px}}

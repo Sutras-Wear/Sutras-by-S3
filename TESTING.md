@@ -123,3 +123,12 @@ This is a limited automated audit, not an accessibility certification. Full manu
 - A targeted colour-region check confirms the yellow fabric ends above image y=720 in the 1200-pixel-high model frame and over 180 pixels higher than before.
 - Verified only the yellow product record changed, all eight products remain, its original gallery is unchanged and top-only/styling-trouser exclusions are preserved.
 - Updated the modelled asset, old asset URL, individual download, image-pack ZIP and overview image. No application logic or styling was changed; a full-site retest was not repeated.
+
+## Product-specific sharing — 6 September 2026
+
+- Verified valid product links open the exact item on arrival/reload, and unknown IDs return to normal browsing without a JavaScript exception.
+- Verified card opening updates the visible product URL; closing the product or moving to the bag removes the selection parameter while preserving other URL parameters.
+- Verified the copied URL uses the public GitHub Pages address and contains only the product ID. Clipboard success was mocked; denial was separately tested with a selectable manual-copy fallback and no false success message.
+- Verified WhatsApp sharing contains the correct product title/link and uses the recipient picker, while both existing store-enquiry destinations remain unchanged. No WhatsApp messages were sent by these tests.
+- Verified gallery enlargement/closing, product size preference, enquiry bag, keyboard containment and mobile direct-link opening.
+- No horizontal overflow at 320, 390, 768 and 1440 pixels. The tested product dialog with the manual-copy field had zero axe-core A/AA violations.

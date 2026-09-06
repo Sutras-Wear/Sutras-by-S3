@@ -206,6 +206,104 @@
     return `${intro}${imageNote}${contentsNote}\nMy usual size: ${size === 'Not sure' ? 'I would appreciate sizing advice' : size}.`;
   }
 
+  // Share only a public product identifier, never a customer's size, bag or note.
+  function productShareUrl(product) {
+    let url;
+    try {
+      url = new URL($('link[rel="canonical"]')?.href || 'https://sutras-wear.github.io/Sutras-by-S3/');
+      if (url.protocol !== 'https:') throw new Error('Public HTTPS URL required');
+    } catch (_) {
+      url = new URL('https://sutras-wear.github.io/Sutras-by-S3/');
+    }
+    url.search = '';
+    url.hash = '';
+    url.searchParams.set('product', product.id);
+    return url.href;
+  }
+
+  function productQuery() {
+    return new URLSearchParams(window.location.search).get('product');
+  }
+
+  function updateProductAddress(id) {
+    // File viewers can deny History API access; the shop must still work there.
+    if (!['http:', 'https:', 'file:'].includes(window.location.protocol)) return;
+    try {
+      const url = new URL(window.location.href);
+      if (id) url.searchParams.set('product', id);
+      else url.searchParams.delete('product');
+      if (url.href !== window.location.href) history.replaceState(history.state, '', url.href);
+    } catch (_) { /* The public share URL does not depend on browser history. */ }
+  }
+
+  function shareControls(product) {
+    const url = productShareUrl(product);
+    const text = `Take a look at ${product.name} from Sutras by S³:\n${url}`;
+    return `<section class="product-share" aria-label="Share this product">
+      <p class="share-heading">Share this piece</p>
+      <div class="product-share-actions">
+        <button type="button" class="share-action" data-copy-product-link>${icon('link')}<span>Copy link</span></button>
+        <a class="share-action" id="share-product-whatsapp" href="https://wa.me/?text=${encodeURIComponent(text)}" target="_blank" rel="noopener noreferrer" aria-label="Share this product on WhatsApp (opens a new tab)">${icon('whatsapp')}<span>Share on WhatsApp</span></a>
+      </div>
+      <div class="product-share-fallback" id="product-share-fallback" hidden>
+        <label for="product-share-url">Product link — select and copy</label>
+        <input id="product-share-url" type="text" value="${escape(url)}" readonly spellcheck="false" aria-describedby="share-link-help">
+        <p id="share-link-help">This link opens this exact piece. It does not share your enquiry bag.</p>
+      </div>
+    </section>`;
+  }
+
+  async function copyProductLink() {
+    if (!activeProduct) return;
+    const id = activeProduct.id;
+    const url = productShareUrl(activeProduct);
+    try {
+      if (window.isSecureContext && navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(url);
+        showToast('Product link copied.');
+        return;
+      }
+    } catch (_) { /* Offer an ordinary selectable link when clipboard is denied. */ }
+    if (activeProduct?.id !== id || !$('#product-dialog').open) return;
+    const fallback = $('#product-share-fallback');
+    const input = $('#product-share-url');
+    fallback.hidden = false;
+    input.value = url;
+    input.focus();
+    input.select();
+    input.setSelectionRange(0, url.length);
+    let copied = false;
+    try { copied = document.execCommand('copy'); } catch (_) { /* Manual copy remains available. */ }
+    showToast(copied ? 'Product link copied.' : 'Select and copy the product link below.');
+  }
+
+  function openProductFromAddress(initial = false) {
+    const id = productQuery();
+    if (!id) {
+      if ($('#image-dialog').open) $('#image-dialog').close();
+      if ($('#product-dialog').open) $('#product-dialog').close();
+      return;
+    }
+    if (!byId.has(id)) {
+      updateProductAddress(null);
+      if ($('#image-dialog').open) $('#image-dialog').close();
+      if ($('#product-dialog').open) $('#product-dialog').close();
+      showToast('That piece is not in the current collection. Please browse or ask us on WhatsApp.');
+      return;
+    }
+    if (initial) {
+      $('#collection').scrollIntoView({ block: 'start', behavior: 'instant' });
+      $$('[data-product]').find(button => button.dataset.product === id)?.focus({ preventScroll: true });
+    }
+    openProduct(id, { fromAddress: true });
+  }
+
+  $('#product-dialog').addEventListener('close', () => {
+    // A queued close event must not clear the route of a product already reopened.
+    if (!$('#product-dialog').open && productQuery() === activeProduct?.id) updateProductAddress(null);
+  });
+  window.addEventListener('popstate', () => openProductFromAddress());
+
   function galleryFor(product) {
     return [{
       src: product.image,
@@ -263,7 +361,7 @@
     syncScrollLock();
   }
 
-  function openProduct(id) {
+  function openProduct(id, { fromAddress = false } = {}) {
     const product = byId.get(id);
     if (!product) return;
     activeProduct = product;
@@ -285,12 +383,16 @@
         <div class="detail-price"><span>${escape(priceText(product))}</span><span>Availability to confirm</span></div>
         <button class="button button-green full-width detail-add-button" type="button" id="add-to-bag">${icon('bag')} Add to enquiry bag ${icon('arrow')}</button>
         <a class="detail-direct-enquiry" id="direct-enquiry" href="${escape(waLink(directMessage(product)))}" target="_blank" rel="noopener noreferrer">Or ask about this style on WhatsApp ↗</a>
+        ${shareControls(product)}
       </div>
     </div>`;
     openDialog('product-dialog');
+    $('#product-dialog').scrollTop = 0;
+    if (!fromAddress) updateProductAddress(product.id);
   }
 
   $('#product-detail').addEventListener('click', event => {
+    if (event.target.closest('[data-copy-product-link]')) void copyProductLink();
     const photoButton = event.target.closest('[data-photo-index]');
     if (photoButton) selectPhoto(Number(photoButton.dataset.photoIndex));
     if (event.target.closest('[data-zoom-photo]')) showPhotoViewer();
@@ -465,4 +567,5 @@
   $('#year').textContent = new Date().getFullYear();
   renderProducts();
   renderBag();
+  if (productQuery() !== null) openProductFromAddress(true);
 })();
