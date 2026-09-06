@@ -470,25 +470,25 @@ window.SUTRAS = {
       "photoNote": "The main image is AI-generated styling. The longer kurta silhouette follows the supplied top photograph; exact length, fit and small details are approximate. Separate photographs of the top, trousers and the two pieces together are in the gallery.",
       "gallery": [
         {
-          "src": "assets/images/dark-green-floral-set-top.webp",
+          "src": "assets/images/dark-green-floral-set-top-cutout.webp",
           "kind": "store-photo",
           "label": "Top photo",
-          "alt": "Actual store photograph: The photographed long button-front kurta, with its floral panels and sleeve detail.",
-          "caption": "The photographed long button-front kurta, with its floral panels and sleeve detail. This is a crop of the supplied photograph; no garment details were generated."
+          "alt": "Actual store photograph with background removed: The photographed long button-front kurta, with its floral panels and sleeve detail.",
+          "caption": "The photographed long kurta, isolated on a neutral background. Original garment colours, folds and details are retained."
         },
         {
-          "src": "assets/images/dark-green-floral-set-bottoms.webp",
+          "src": "assets/images/dark-green-floral-set-bottoms-cutout.webp",
           "kind": "store-photo",
           "label": "Bottoms photo",
-          "alt": "Actual store photograph: The coordinating plain elastic-waist trousers, photographed separately.",
-          "caption": "The coordinating plain elastic-waist trousers, photographed separately. This is a crop of the supplied photograph; no garment details were generated."
+          "alt": "Actual store photograph with background removed: The coordinating plain elastic-waist trousers, photographed separately.",
+          "caption": "The photographed plain trousers, isolated on a neutral background. Original garment colours, folds and details are retained."
         },
         {
-          "src": "assets/images/dark-green-floral-set-set.webp",
+          "src": "assets/images/dark-green-floral-set-set-cutout.webp",
           "kind": "store-photo",
           "label": "Set photo",
-          "alt": "Actual store photograph: Both photographed pieces together. The blue patterned surface is the background, not part of the outfit.",
-          "caption": "Both photographed pieces together. The blue patterned surface is the background, not part of the outfit. This is a crop of the supplied photograph; no garment details were generated."
+          "alt": "Actual store photograph with background removed: Both photographed pieces together. The blue patterned surface is the background, not part of the outfit.",
+          "caption": "The photographed kurta and trousers together, with the bed and room background removed. The view has been straightened; garment details were not generated."
         }
       ],
       "price": null,
