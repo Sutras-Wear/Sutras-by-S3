@@ -2,7 +2,7 @@
  * SUTRAS — editable store content
  * Replace the images in assets/images/ and edit these entries as your real
  * collection becomes available. See README.md before changing isPreview.
- * The catalogue now has eleven source-photo-based products, including the
+ * The catalogue now has twelve source-photo-based products, including the
  * yellow kurti sold as a top only. Modelled views and original-photo galleries
  * are distinguished in the product text; there are no concept product entries. isPreview describes concept products; imageKind describes
  * imagery. No price or size availability has been supplied.
@@ -453,6 +453,46 @@ window.SUTRAS = {
           "caption": "Cuff detail — a closer crop of the same supplied photograph, not a separate camera angle."
         }
       ]
+    },
+    {
+      "id": "dark-green-floral-two-piece-set",
+      "name": "Dark Green Floral Two-Piece Kurta Set",
+      "cardName": "Dark Green Floral Set",
+      "category": "Kurta sets",
+      "color": "Deep green & floral",
+      "colorHex": "#164b4c",
+      "image": "assets/images/dark-green-floral-set-model.webp",
+      "imageKind": "ai-model",
+      "imageAlt": "AI-generated styling view of an adult woman in a long dark-green button-front floral kurta and matching plain trousers, without a scarf. Fit and details are illustrative.",
+      "description": "A longer dark-green button-front kurta with fine chest pleats and pink-and-yellow floral panels, paired with coordinating plain trousers. Shown as a two-piece outfit: kurta and bottoms, with no scarf pictured. Please confirm availability and final garment details when ordering.",
+      "detail": "Long kurta + plain trousers · Floral panels · No scarf shown",
+      "setContents": "Long floral kurta and coordinating plain trousers (2 pieces as photographed; no scarf shown)",
+      "photoNote": "The main image is AI-generated styling. The longer kurta silhouette follows the supplied top photograph; exact length, fit and small details are approximate. Separate photographs of the top, trousers and the two pieces together are in the gallery.",
+      "gallery": [
+        {
+          "src": "assets/images/dark-green-floral-set-top.webp",
+          "kind": "store-photo",
+          "label": "Top photo",
+          "alt": "Actual store photograph: The photographed long button-front kurta, with its floral panels and sleeve detail.",
+          "caption": "The photographed long button-front kurta, with its floral panels and sleeve detail. This is a crop of the supplied photograph; no garment details were generated."
+        },
+        {
+          "src": "assets/images/dark-green-floral-set-bottoms.webp",
+          "kind": "store-photo",
+          "label": "Bottoms photo",
+          "alt": "Actual store photograph: The coordinating plain elastic-waist trousers, photographed separately.",
+          "caption": "The coordinating plain elastic-waist trousers, photographed separately. This is a crop of the supplied photograph; no garment details were generated."
+        },
+        {
+          "src": "assets/images/dark-green-floral-set-set.webp",
+          "kind": "store-photo",
+          "label": "Set photo",
+          "alt": "Actual store photograph: Both photographed pieces together. The blue patterned surface is the background, not part of the outfit.",
+          "caption": "Both photographed pieces together. The blue patterned surface is the background, not part of the outfit. This is a crop of the supplied photograph; no garment details were generated."
+        }
+      ],
+      "price": null,
+      "isPreview": false
     }
   ]
 };

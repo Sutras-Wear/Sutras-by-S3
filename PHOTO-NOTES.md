@@ -101,3 +101,7 @@ The owner confirmed that the yellow item is a **short kurti**, comparable in len
 ## Three additional short, top-only kurtis
 
 The owner confirmed that the olive lattice, slate-grey and wine floral tops are all **short**, like the corrected yellow top. Each listing includes the kurti only; ivory model trousers and footwear are styling props, not merchandise. Modelled images have no text or badges. Original supplied photographs and two same-photo detail crops are retained in each gallery; these references retain their patterned background and are not described as background-removed. EXIF/location metadata is not carried into exports. All previous products are retained.
+
+## Dark-green floral two-piece outfit
+
+Three separate photographs were supplied for one outfit: long button-front floral kurta, plain coordinating bottoms, and both together. They are one product, not three listings. No scarf is shown. The modelled image follows the longer silhouette, without a scarf; exact fit and details remain illustrative. Gallery views are focused crops of the supplied photographs, retaining some background where appropriate, with EXIF/location metadata omitted. No price or size availability was provided.

@@ -8,7 +8,7 @@ An editorial, mobile-friendly storefront for Sutras’ women’s cotton Indian w
 
 ## Current collection
 
-The catalogue now contains **eleven products**, with the existing four retained and the repeated white photo counted once:
+The catalogue now contains **twelve products**, with the existing four retained and the repeated white photo counted once:
 
 | Product | Included in the listing |
 | --- | --- |
@@ -105,7 +105,7 @@ Instagram blocked automated access. No actual Instagram photographs, posts, stoc
 
 ## Replace the placeholder photos later
 
-The orange and pink three-piece sets and navy and green two-piece sets use **AI-modelled primary images**, with their actual owner-supplied photographs retained in their galleries. The hero, cotton still life and remaining model images are AI-generated illustrations. All eleven displayed products are based on garments supplied by the owner, not concept listings. The yellow item is sold as a top only, not as the complete styled outfit shown on the model. The retired Bela and Gulabi illustrations are still used only in the inspiration moodboard; the old Noor and Olive assets are not product listings. Store-photo and illustrative items are distinguished in the collection, details, search, bag, FAQs and WhatsApp messages. See `PHOTO-NOTES.md` for the real image’s provenance.
+The orange and pink three-piece sets and navy and green two-piece sets use **AI-modelled primary images**, with their actual owner-supplied photographs retained in their galleries. The hero, cotton still life and remaining model images are AI-generated illustrations. All twelve displayed products are based on garments supplied by the owner, not concept listings. The yellow item is sold as a top only, not as the complete styled outfit shown on the model. The retired Bela and Gulabi illustrations are still used only in the inspiration moodboard; the old Noor and Olive assets are not product listings. Store-photo and illustrative items are distinguished in the collection, details, search, bag, FAQs and WhatsApp messages. See `PHOTO-NOTES.md` for the real image’s provenance.
 
 ### Quickest photo replacement
 
